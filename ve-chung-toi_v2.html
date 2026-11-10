@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#fff7ed">
-    <meta name="description" content="Tìm hiểu câu chuyện, tầm nhìn, giá trị cốt lõi và hệ sinh thái giáo dục Bản Việt EdTech.">
-    <title>Về Chúng Tôi | Bản Việt EdTech</title>
+    <meta name="description" content="Khám phá phương pháp học tập cá nhân hóa, đội ngũ chuyên môn và hệ thống khóa học của Trung tâm Điểm 10+.">
+    <title>Về Chúng Tôi | Trung Tâm Điểm 10+</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
             font-synthesis: none;
             text-rendering: optimizeLegibility;
             scroll-behavior: smooth;
+            overflow-x: clip;
         }
 
         * {
@@ -24,9 +25,10 @@
         }
 
         body {
-            min-width: 320px;
+            min-width: 0;
             margin: 0;
             background: #fffaf5;
+            overflow-x: clip;
         }
 
         a {
@@ -114,9 +116,29 @@
 
         .brand-logo img {
             display: block;
-            width: 160px;
-            height: 70px;
+            width: 146px;
+            height: 52px;
             object-fit: contain;
+        }
+
+        .brand-copy {
+            display: grid;
+            gap: 3px;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        .brand-copy strong {
+            font-family: Montserrat, sans-serif;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+        }
+
+        .brand-copy span {
+            color: #fed7aa;
+            font-size: 10px;
+            font-weight: 700;
         }
 
         .desktop-nav {
@@ -161,9 +183,20 @@
             transition: transform 160ms ease, background 160ms ease;
         }
 
+        .contact-link--short {
+            display: none;
+        }
+
         .contact-link:hover {
             transform: translateY(-2px);
             background: #d97706;
+        }
+
+        .header-hotline {
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            white-space: nowrap;
         }
 
         .menu-toggle {
@@ -345,6 +378,72 @@
             justify-self: center;
             display: grid;
             place-items: center;
+        }
+
+        .hero-visual {
+            position: relative;
+            width: min(100%, 470px);
+            min-height: 430px;
+            justify-self: center;
+        }
+
+        .hero-photo {
+            position: absolute;
+            overflow: hidden;
+            border: 5px solid rgba(255, 255, 255, 0.9);
+            border-radius: 28px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        }
+
+        .hero-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-photo--team {
+            top: 0;
+            right: 0;
+            width: 78%;
+            height: 76%;
+        }
+
+        .hero-photo--center {
+            bottom: 0;
+            left: 0;
+            width: 56%;
+            height: 48%;
+            border-color: #f59e0b;
+        }
+
+        .hero-highlight {
+            position: absolute;
+            z-index: 2;
+            padding: 11px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 999px;
+            background: rgba(69, 10, 10, 0.88);
+            color: #fff;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            font-size: 10px;
+            font-weight: 900;
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-highlight--one {
+            top: 18%;
+            left: -3%;
+        }
+
+        .hero-highlight--two {
+            top: 47%;
+            right: -2%;
+        }
+
+        .hero-highlight--three {
+            bottom: 2%;
+            right: 8%;
         }
 
         .orbit-ring {
@@ -637,20 +736,14 @@
             transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
         }
 
-        .value-card {
-            /* Các thuộc tính mặc định của card nếu có */
-            transition: all 0.3s ease; /* Thêm hiệu ứng chuyển động mượt mà */
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(185, 28, 28, 0.55);
+            box-shadow: 0 18px 35px rgba(69, 10, 10, 0.1);
+        }
 
-            &:hover {
-                transform: translateY(-5px);
-                border-color: rgba(185, 28, 28, 0.55);
-                box-shadow: 0 18px 35px rgba(69, 10, 10, 0.1);
-
-                /* Thay đổi màu của .value-number khi hover vào .value-card */
-                .value-number {
-                    color: rgba(69, 10, 10, 0.96);
-                }
-            }
+        .value-card:hover .value-number {
+            color: rgba(69, 10, 10, 0.2);
         }
 
         .value-number {
@@ -867,7 +960,7 @@
 
         .ecosystem-grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 18px;
         }
 
@@ -935,6 +1028,25 @@
             transform: translateX(4px);
         }
 
+        .course-card {
+            min-height: 230px;
+        }
+
+        .course-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            background: #fff1f2;
+            color: #991b1b;
+            font-family: Montserrat, sans-serif;
+            font-size: 13px;
+            font-weight: 900;
+        }
+
         .leadership-panel {
             display: grid;
             grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
@@ -996,6 +1108,40 @@
             background: #fff;
         }
 
+        .branch-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .branch-card {
+            min-height: 106px;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 18px;
+            border: 1px solid rgba(185, 28, 28, 0.16);
+            border-radius: 18px;
+            background: #fffaf5;
+            color: #451a03;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .branch-card span {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            flex: 0 0 auto;
+            place-items: center;
+            border-radius: 11px;
+            background: #fee2e2;
+            color: #b81c1c;
+            font-family: Montserrat, sans-serif;
+            font-size: 10px;
+            font-weight: 900;
+        }
+
         .partners-heading {
             margin-bottom: 28px;
             text-align: center;
@@ -1050,10 +1196,10 @@
         }
 
         .cta-card {
-            display: flex;
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
             align-items: center;
-            justify-content: space-between;
-            gap: 24px;
+            gap: 36px;
         }
 
         .cta-card h2 {
@@ -1064,17 +1210,119 @@
         }
 
         .cta-card p {
-            margin-bottom: 0;
+            margin-bottom: 14px;
             color: #6b4f3a;
             font-size: 13px;
+            line-height: 1.75;
+        }
+
+        .cta-promises {
+            color: #78350f;
+            font-size: 11px;
+            font-weight: 800;
+            line-height: 1.8;
+        }
+
+        .consultation-form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 13px;
+            padding: 24px;
+            border: 1px solid rgba(185, 28, 28, 0.13);
+            border-radius: 24px;
+            background: #fff;
+            box-shadow: 0 18px 45px rgba(69, 10, 10, 0.08);
+        }
+
+        .form-field {
+            display: grid;
+            gap: 6px;
+        }
+
+        .form-field--full {
+            grid-column: 1 / -1;
+        }
+
+        .form-field label {
+            color: #451a03;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .form-field input,
+        .form-field select {
+            width: 100%;
+            min-height: 43px;
+            padding: 10px 12px;
+            border: 1px solid #eadbd2;
+            border-radius: 11px;
+            background: #fffaf5;
+            color: #451a03;
+            font: inherit;
+            font-size: 12px;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus {
+            outline: 2px solid rgba(184, 27, 27, 0.24);
+            border-color: #b81b1b;
+        }
+
+        .consultation-submit {
+            min-height: 45px;
+            border: 0;
+            border-radius: 999px;
+            background: #b81b1b;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .consultation-submit:hover {
+            background: #991b1b;
+        }
+
+        .form-note {
+            margin: 0;
+            color: #78685e;
+            font-size: 10px;
+            line-height: 1.6;
         }
 
         .site-footer {
-            padding: 27px 0;
+            padding: 38px 0 22px;
             background: #450a0a;
             color: #fed7aa;
-            text-align: center;
             font-size: 11px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 28px;
+            padding-bottom: 25px;
+        }
+
+        .footer-grid h2,
+        .footer-grid h3 {
+            margin-bottom: 12px;
+            color: #fde68a;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .footer-grid p {
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+
+        .footer-copyright {
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+            color: #fed7aa;
+            text-align: center;
+            font-size: 10px;
         }
 
         @keyframes orbit-turn {
@@ -1123,7 +1371,7 @@
             }
 
             .brand-logo img {
-                width: 120px;
+                width: 108px;
             }
 
             .values-grid,
@@ -1139,6 +1387,7 @@
 
             .header-inner {
                 min-height: 68px;
+                gap: 8px;
             }
 
             .desktop-nav {
@@ -1146,12 +1395,45 @@
             }
 
             .brand-logo img {
-                width: 112px;
-                height: 42px;
+                width: 72px;
+                height: 38px;
+            }
+
+            .brand-logo {
+                min-width: 0;
+                padding: 4px 0;
+            }
+
+            .brand-copy strong {
+                font-size: 8px;
+            }
+
+            .brand-copy span {
+                font-size: 7px;
+            }
+
+            .header-hotline {
+                display: none;
+            }
+
+            .contact-link {
+                padding: 9px 10px;
+                font-size: 0;
+            }
+
+            .contact-link--full {
+                display: none;
+            }
+
+            .contact-link--short {
+                display: inline;
+                font-size: 9px;
             }
 
             .menu-toggle {
                 display: grid;
+                width: 38px;
+                height: 38px;
             }
 
             .hero {
@@ -1173,8 +1455,9 @@
                 font-size: 13px;
             }
 
-            .orbit-visual {
-                width: min(100%, 360px);
+            .hero-visual {
+                width: min(100%, 420px);
+                min-height: 350px;
             }
 
             .section {
@@ -1218,41 +1501,40 @@
             .cta-card {
                 align-items: flex-start;
                 flex-direction: column;
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .branch-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
         @media (max-width: 480px) {
+            .brand-logo img {
+                width: 66px;
+            }
+
             .contact-link {
-                padding: 10px 11px;
-                font-size: 10px;
+                padding: 8px;
+            }
+
+            .menu-toggle {
+                width: 36px;
+                height: 36px;
             }
 
             .hero h1 {
                 font-size: 39px;
             }
 
-            .orbit-visual {
-                width: min(100%, 320px);
+            .hero-visual {
+                min-height: 300px;
             }
 
-            .orbit-node {
-                width: 86px;
-                min-height: 66px;
-                border-radius: 15px;
+            .hero-highlight {
+                padding: 9px 11px;
                 font-size: 9px;
-            }
-
-            .orbit-node--people,
-            .orbit-node--tech {
-                left: calc(50% - 43px);
-            }
-
-            .orbit-node--knowledge {
-                right: -2%;
-            }
-
-            .orbit-node--growth {
-                left: -2%;
             }
 
             .section-heading {
@@ -1271,6 +1553,15 @@
             .ecosystem-grid,
             .leadership-points {
                 grid-template-columns: 1fr;
+            }
+
+            .branch-grid,
+            .consultation-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-field--full {
+                grid-column: auto;
             }
 
             .value-card {
@@ -1294,6 +1585,24 @@
             .brand-card {
                 min-height: 240px;
             }
+
+            .hero-photo--team {
+                width: 84%;
+                height: 78%;
+            }
+
+            .hero-photo--center {
+                width: 58%;
+                height: 45%;
+            }
+
+            .hero-highlight--one {
+                left: 0;
+            }
+
+            .hero-highlight--two {
+                right: 0;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1311,27 +1620,34 @@
 <body>
     <header class="site-header">
         <div class="content-width header-inner">
-            <a class="brand-logo" href="index.html" aria-label="Bản Việt - Trang chủ">
-                <img src="images_v2/logo.png" alt="Logo Bản Việt">
+            <a class="brand-logo" href="index_v2.html" aria-label="Trung tâm Điểm 10+ - Trang chủ">
+                <img src="diem10cong-logo.png" alt="Logo Điểm 10+">
+                <span class="brand-copy">
+                    <strong>TRUNG TÂM ĐIỂM 10+</strong>
+                    <span>Vững kiến thức, chắc tư duy</span>
+                </span>
             </a>
             <nav class="desktop-nav" aria-label="Điều hướng chính">
-                <a href="ve-chung-toi_v2.html" aria-current="page">Về Chúng Tôi</a>
-                <a href="#ecosystem">Hệ Sinh Thái</a>
+                <a href="#story">Câu Chuyện</a>
+                <a href="#ecosystem">Khóa Học</a>
+                <a href="#branches">Chi Nhánh</a>
                 <a href="tin-tuc_v2.html">Tin Tức</a>
-                <a href="tuyen-dung_v2.html">Tuyển Dụng</a>
-                <a href="#partners">Đối Tác</a>
             </nav>
-            <a class="contact-link" href="index.html#contact">Liên Hệ Ngay</a>
+            <a class="header-hotline" href="tel:0933398787">0933 39 87 87</a>
+            <a class="contact-link" href="#contact"><span class="contact-link--full">Đăng Ký Học Thử</span><span class="contact-link--short">Học Thử</span></a>
             <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
         <nav class="mobile-menu" id="mobile-menu" aria-label="Điều hướng mobile">
-            <a href="ve-chung-toi_v2.html" aria-current="page">Về Chúng Tôi</a>
-            <a href="#ecosystem">Hệ Sinh Thái</a>
+            <a href="#story">Câu chuyện thương hiệu</a>
+            <a href="#values">Giá trị cốt lõi</a>
+            <a href="#journey">Hành trình</a>
+            <a href="#ecosystem">Khóa học</a>
+            <a href="#leadership">Đội ngũ chuyên môn</a>
+            <a href="#branches">Hệ thống chi nhánh</a>
+            <a href="#contact">Đăng ký tư vấn</a>
             <a href="tin-tuc_v2.html">Tin Tức</a>
-            <a href="tuyen-dung_v2.html">Tuyển Dụng</a>
-            <a href="#partners">Đối Tác</a>
         </nav>
     </header>
 
@@ -1339,38 +1655,25 @@
         <section class="hero" aria-labelledby="about-title">
             <div class="content-width hero-grid">
                 <div class="hero-copy">
-                    <span class="eyebrow">Bản Việt EdTech · Bản sắc Việt, giá trị toàn cầu</span>
-                    <h1 id="about-title">Về Bản Việt <br><span>Kiến Tạo</span> Tương Lai Giáo Dục Việt Nam</h1>
-                    <p>Nơi hội tụ của trí tuệ, công nghệ và con người, mang đến các giải pháp giáo dục toàn diện, hiện đại và tiếp cận toàn cầu.</p>
+                    <span class="eyebrow">ĐIỂM 10+ · VỮNG KIẾN THỨC, CHẮC TƯ DUY</span>
+                    <h1 id="about-title">Vững Kiến Thức — Chắc Tư Duy: <span>Bứt Phá Điểm Số</span> Cùng Điểm 10+</h1>
+                    <p>Với hơn 11 năm kinh nghiệm bồi dưỡng văn hóa Toán - Lý - Hóa - Văn, Trung tâm Điểm 10+ áp dụng phương pháp "Hướng mục tiêu - Cá nhân hóa" độc quyền. Mỗi học sinh được thiết kế lộ trình riêng, theo sát 1-1 giúp xóa mất gốc, phát triển tư duy logic và tự tin chinh phục mọi kỳ thi.</p>
                     <div class="hero-actions">
-                        <a class="button-primary" href="#story">Khám phá câu chuyện</a>
-                        <a class="button-secondary" href="#ecosystem">Hệ sinh thái Bản Việt</a>
+                        <a class="button-primary" href="#story">Khám phá ngay</a>
+                        <a class="button-secondary" href="#values">Phương pháp giảng dạy</a>
                     </div>
                 </div>
 
-                <div class="orbit-visual" role="img" aria-label="Hệ sinh thái Bản Việt kết nối con người, tri thức, công nghệ và phát triển">
-                    <div class="orbit-ring" aria-hidden="true"></div>
-                    <div class="orbit-core">
-                        <img src="banviet_tach_nen (1).png" alt="">
-                        
-                        <span>Con người là trung tâm</span>
-                    </div>
-                    <div class="orbit-node orbit-node--people">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 5.5a3 3 0 0 1 0 5.8M17 14a4.5 4.5 0 0 1 3.5 4.4"></path></svg>
-                        Con Người
-                    </div>
-                    <div class="orbit-node orbit-node--knowledge">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21zM4 5.5v13M8 7h8M8 11h7"></path></svg>
-                        Trí Thức
-                    </div>
-                    <div class="orbit-node orbit-node--tech">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"></rect><path d="M9 9h6v6H9zM9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4"></path></svg>
-                        Công Nghệ
-                    </div>
-                    <div class="orbit-node orbit-node--growth">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6m0 12h16M7 15l4-4 3 2 5-6M15 7h4v4"></path></svg>
-                        Phát Triển
-                    </div>
+                <div class="hero-visual" aria-label="Đội ngũ và môi trường học tập tại Điểm 10+" role="group">
+                    <figure class="hero-photo hero-photo--team">
+                        <img src="anh_doi_ngu.png" alt="Đội ngũ giáo viên và nhân sự Điểm 10+" fetchpriority="high">
+                    </figure>
+                    <figure class="hero-photo hero-photo--center">
+                        <img src="images_v2/background.png" alt="Không gian cơ sở Trung tâm Điểm 10+" fetchpriority="high">
+                    </figure>
+                    <div class="hero-highlight hero-highlight--one">Cá nhân hóa</div>
+                    <div class="hero-highlight hero-highlight--two">Hướng mục tiêu</div>
+                    <div class="hero-highlight hero-highlight--three">Tư duy bền vững</div>
                 </div>
             </div>
         </section>
@@ -1380,19 +1683,18 @@
                 <div class="story-grid">
                     <article class="story-card">
                         <span class="section-kicker">Câu chuyện thương hiệu</span>
-                        <h2>Rút ngắn khoảng cách công nghệ trong giáo dục</h2>
-                        <p>Bản Việt khởi nguồn từ khát vọng góp phần thu hẹp khoảng cách công nghệ trong dạy và học. Từ những nhu cầu thiết thực của học sinh, giáo viên và các cơ sở giáo dục, chúng tôi hướng đến xây dựng những giải pháp hữu ích, dễ tiếp cận và có thể phát triển bền vững.</p>
-                        <p>Hành trình ấy kết nối kinh nghiệm giáo dục với sức mạnh công nghệ, để mỗi người học có thêm cơ hội khám phá tiềm năng và chủ động kiến tạo tương lai.</p>
-                        <div class="story-quote">Bản sắc Việt — Giá trị toàn cầu</div>
+                        <h2>Đồng hành cùng học sinh TP.HCM bứt phá điểm số và nuôi dưỡng niềm đam mê tự học</h2>
+                        <p>Tại Điểm 10+, chúng tôi thấu hiểu những khó khăn, áp lực mà mỗi học sinh phải đối mặt. Triết lý giáo dục của chúng tôi kết hợp phương pháp "Hướng mục tiêu - Cá nhân hóa" cùng đội ngũ giáo viên tận tâm, giàu chuyên môn. Mỗi lộ trình học được thiết kế riêng, giúp học sinh không chỉ bứt phá điểm số mà còn xây dựng nền tảng tư duy vững chắc, nhẹ nhàng nhưng bền vững.</p>
+                        <div class="story-quote">Học đúng mục tiêu — Tiến bộ bền vững</div>
                     </article>
                     <div class="vision-stack">
                         <article class="vision-card">
                             <span>Tầm nhìn</span>
-                            <h3>Tiên phong xây dựng hệ sinh thái công nghệ giáo dục hàng đầu tại Việt Nam, vươn tầm quốc tế.</h3>
+                            <h3>Trở thành hệ thống bồi dưỡng văn hóa uy tín hàng đầu tại TP.HCM, mang đến môi trường học tập cá nhân hóa chuẩn mực cho thế hệ trẻ Việt Nam.</h3>
                         </article>
                         <article class="vision-card">
                             <span>Sứ mệnh</span>
-                            <h3>Số hóa học tập và quản lý, cá nhân hóa trải nghiệm bằng công nghệ và trí tuệ nhân tạo.</h3>
+                            <h3>Giúp học sinh xóa mất gốc, làm chủ kiến thức Toán - Lý - Hóa - Văn và phát triển tư duy tự học suốt đời thông qua mô hình đồng hành 1:1.</h3>
                         </article>
                     </div>
                 </div>
@@ -1403,33 +1705,33 @@
             <div class="content-width">
                 <div class="section-heading">
                     <span class="section-kicker">Nền tảng phát triển</span>
-                    <h2>Bốn trụ cột giá trị cốt lõi</h2>
-                    <p>Những nguyên tắc định hướng cách Bản Việt xây dựng sản phẩm, đồng hành cùng người học và phát triển cộng đồng.</p>
+                    <h2>4 Trụ Cột Giá Trị Cốt Lõi</h2>
+                    <p>Phương pháp đồng hành toàn diện, từ đánh giá năng lực đến xây dựng thói quen học tập bền vững.</p>
                 </div>
                 <div class="values-grid">
                     <article class="value-card">
                         <span class="value-number">01</span>
                         <div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 11a3 3 0 1 0-1.4-5.65M17 15a4.5 4.5 0 0 1 3.5 4"></path></svg></div>
-                        <h3>Con Người</h3>
-                        <p>Lấy người học và đội ngũ làm trung tâm; nuôi dưỡng tài năng, sự thấu cảm và tinh thần trách nhiệm.</p>
+                        <h3>Tư Vấn Chuyên Gia</h3>
+                        <p>Trực tiếp đánh giá năng lực, xây dựng lộ trình học tập tối ưu cho từng học sinh ngay từ ban đầu.</p>
                     </article>
                     <article class="value-card">
                         <span class="value-number">02</span>
                         <div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22zM4 5.5v14M8 7h8M8 11h8M8 15h5"></path></svg></div>
-                        <h3>Trí Thức</h3>
-                        <p>Kết nối tri thức chuẩn mực, cập nhật phương pháp tiên tiến và khuyến khích học tập suốt đời.</p>
+                        <h3>Cá Nhân Hóa Lộ Trình</h3>
+                        <p>Học tập theo trình độ và tốc độ riêng; đội ngũ giáo viên 1:1 theo sát tiến độ hàng tuần.</p>
                     </article>
                     <article class="value-card">
                         <span class="value-number">03</span>
                         <div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"></rect><path d="M9 9h6v6H9zM9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4"></path></svg></div>
-                        <h3>Công Nghệ</h3>
-                        <p>Ứng dụng AI, dữ liệu và tự động hóa để hỗ trợ giảng dạy, cá nhân hóa học tập và tối ưu vận hành.</p>
+                        <h3>Phương Pháp Thực Chứng</h3>
+                        <p>Giáo trình đúc kết từ 11+ năm kinh nghiệm; cam kết 98% học sinh tiến bộ rõ rệt sau khóa đầu tiên.</p>
                     </article>
                     <article class="value-card">
                         <span class="value-number">04</span>
                         <div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6m0 12h16M7 15l4-4 3 2 5-6M15 7h4v4"></path></svg></div>
-                        <h3>Phát Triển</h3>
-                        <p>Không ngừng mở rộng hệ sinh thái, tạo giá trị bền vững cho người học và cộng đồng giáo dục.</p>
+                        <h3>Cộng Đồng Đồng Hành</h3>
+                        <p>Thầy cô, bạn học và phụ huynh luôn kết nối, hỗ trợ 24/7 qua các hoạt động học tập và ngoại khóa.</p>
                     </article>
                 </div>
             </div>
@@ -1439,9 +1741,9 @@
             <div class="content-width">
                 <div class="timeline-head">
                     <div class="section-heading">
-                        <span class="section-kicker">2010 — 2026</span>
-                        <h2>Hành trình phát triển</h2>
-                        <p>Từ những bước khởi đầu đến định hướng kiến tạo tương lai giáo dục số.</p>
+                        <span class="section-kicker">2013 — 2026</span>
+                        <h2>Những Cột Mốc Đáng Nhớ Trên Chặng Đường 11+ Năm</h2>
+                        <p>Từ lớp học đầu tiên đến hệ thống 8 chi nhánh đồng hành cùng học sinh TP.HCM.</p>
                     </div>
                     <div class="timeline-controls" aria-label="Điều hướng dòng thời gian">
                         <button class="timeline-control" type="button" data-timeline-prev aria-label="Xem các mốc trước" disabled>
@@ -1452,69 +1754,57 @@
                         </button>
                     </div>
                 </div>
-                <div class="timeline-viewport" data-timeline-viewport tabindex="0" aria-label="Dòng thời gian từ 2010 đến 2026, cuộn ngang để xem các mốc">
+                <div class="timeline-viewport" data-timeline-viewport tabindex="0" aria-label="Bốn cột mốc phát triển của Điểm 10+ từ 2013 đến 2026, cuộn ngang để xem">
                     <div class="timeline-track">
                         <article class="milestone is-active">
-                            <div class="milestone-card"><span class="milestone-year">2010</span><h3>Khởi đầu hành trình</h3><p>Khởi đầu nghiên cứu và đặt những nền móng đầu tiên cho hành trình giáo dục.</p></div>
+                            <div class="milestone-card"><span class="milestone-year">2013</span><h3>Khởi Đầu Từ Một Lớp Học Nhỏ</h3><p>Lớp bồi dưỡng Toán đầu tiên ra đời tại Quận 5 với 12 học sinh. Tâm huyết của thầy cô là nền móng cho mọi bước tiến.</p></div>
                             <span class="milestone-node" aria-hidden="true"></span>
                         </article>
                         <article class="milestone">
-                            <div class="milestone-card"><span class="milestone-year">2013</span><h3>Mở rộng hoạt động</h3><p>Mở rộng quy mô và triển khai các lớp học chất lượng cao.</p></div>
+                            <div class="milestone-card"><span class="milestone-year">2016</span><h3>Mở Rộng Chi Nhánh Đầu Tiên</h3><p>Chi nhánh thứ 2 tại Quận 10 khai trương, đánh dấu bước ngoặt mở rộng quy mô phục vụ học sinh nhiều quận.</p></div>
                             <span class="milestone-node" aria-hidden="true"></span>
                         </article>
                         <article class="milestone">
-                            <div class="milestone-card"><span class="milestone-year">2016</span><h3>Đổi mới cùng công nghệ</h3><p>Bắt đầu số hóa tài liệu và bài giảng, hỗ trợ trải nghiệm học tập linh hoạt.</p></div>
+                            <div class="milestone-card"><span class="milestone-year">2019</span><h3>Đột Phá Phương Pháp "Hướng Mục Tiêu"</h3><p>Phương pháp "Hướng mục tiêu - Cá nhân hóa" độc quyền ra đời, giúp hàng trăm học sinh xóa mất gốc và bứt phá điểm số.</p></div>
                             <span class="milestone-node" aria-hidden="true"></span>
                         </article>
                         <article class="milestone">
-                            <div class="milestone-card"><span class="milestone-year">2019</span><h3>Chuyển mình số hóa</h3><p>Phát triển định hướng giải pháp quản lý học tập thông minh.</p></div>
-                            <span class="milestone-node" aria-hidden="true"></span>
-                        </article>
-                        <article class="milestone">
-                            <div class="milestone-card"><span class="milestone-year">2022</span><h3>Xây dựng hệ sinh thái</h3><p>Hình thành hệ sinh thái đa thương hiệu phục vụ nhiều nhu cầu giáo dục.</p></div>
-                            <span class="milestone-node" aria-hidden="true"></span>
-                        </article>
-                        <article class="milestone">
-                            <div class="milestone-card"><span class="milestone-year">2026</span><h3>Kiến tạo tương lai số</h3><p>Hướng tới tích hợp sâu rộng AI vào hệ thống và hành trình học tập.</p></div>
+                            <div class="milestone-card"><span class="milestone-year">2026 · HIỆN TẠI</span><h3>Hệ Thống 8 Chi Nhánh (98% Tiến Bộ)</h3><p>Phủ sóng 8 cơ sở khắp TP.HCM, hàng nghìn học sinh đồng hành mỗi năm với tỉ lệ 98% tiến bộ rõ rệt.</p></div>
                             <span class="milestone-node" aria-hidden="true"></span>
                         </article>
                     </div>
                 </div>
-                <p class="timeline-footnote">Các mốc tóm lược theo nội dung định hướng được cung cấp; có thể cập nhật thêm thành tựu và hình ảnh thực tế.</p>
+                <p class="timeline-footnote">Hành trình đồng hành cùng học sinh TP.HCM từ năm 2013 đến nay.</p>
             </div>
         </section>
 
         <section class="section section-white" id="ecosystem">
             <div class="content-width">
                 <div class="section-heading">
-                    <span class="section-kicker">Hệ sinh thái giáo dục Bản Việt</span>
-                    <h2>Bốn mảnh ghép — Một hành trình học tập</h2>
-                    <p>Các thương hiệu tập trung vào những nhu cầu khác nhau, cùng hướng đến trải nghiệm giáo dục toàn diện.</p>
+                    <span class="section-kicker">Hệ thống khóa học</span>
+                    <h2>Lộ Trình Học Tập Toàn Diện Cho Mọi Lứa Tuổi</h2>
+                    <p>Chương trình bồi dưỡng theo từng giai đoạn, đồng hành cùng học sinh từ những bước đầu tiên đến các kỳ thi quan trọng.</p>
                 </div>
                 <div class="ecosystem-grid">
-                    <article class="brand-card">
-                        <div class="brand-logo-wrap"><img src="danhlingo-logo.png" alt="Logo Danhlingo" loading="lazy"></div>
-                        <h3>Danhlingo</h3>
-                        <p>Nền tảng học ngoại ngữ và luyện thi chứng chỉ trực tuyến, hỗ trợ người học rèn luyện linh hoạt.</p>
-                        <a href="index.html#brand-danhlingo">Tìm hiểu thương hiệu <span aria-hidden="true">→</span></a>
+                    <article class="brand-card course-card">
+                        <span class="course-number">01</span>
+                        <h3>Lớp Tiền Tiểu Học (Lớp 1)</h3>
+                        <p>Xây dựng nền tảng tư duy ban đầu, chuẩn bị tâm lý và kỹ năng vào lớp 1.</p>
                     </article>
-                    <article class="brand-card">
-                        <div class="brand-logo-wrap"><img src="diem10cong-logo.png" alt="Logo Diem10cong" loading="lazy"></div>
-                        <h3>Diem10cong</h3>
-                        <p>Giải pháp luyện thi K-12, đồng hành củng cố kiến thức Toán, Lý, Hóa và Văn.</p>
-                        <a href="index.html#brand-diem10cong">Tìm hiểu thương hiệu <span aria-hidden="true">→</span></a>
+                    <article class="brand-card course-card">
+                        <span class="course-number">02</span>
+                        <h3>Bồi Dưỡng Cấp 2 (Lớp 6 - 9)</h3>
+                        <p>Củng cố vững chắc kiến thức các môn Toán, Lý, Hóa, Văn và chuẩn bị cho kỳ thi chuyển cấp.</p>
                     </article>
-                    <article class="brand-card">
-                        <div class="brand-logo-wrap"><img src="aitechco-logo.png" alt="Logo Aitechco" loading="lazy"></div>
-                        <h3>Aitechco</h3>
-                        <p>Định hướng nghiên cứu và phát triển phần mềm AI, trợ lý học tập và ứng dụng công nghệ.</p>
-                        <a href="index.html#brand-aitechco">Tìm hiểu thương hiệu <span aria-hidden="true">→</span></a>
+                    <article class="brand-card course-card">
+                        <span class="course-number">03</span>
+                        <h3>Luyện Thi Vào Lớp 10</h3>
+                        <p>Chiến lược ôn luyện mục tiêu, luyện giải đề chuyên sâu giúp học sinh tự tin đỗ trường cấp 3 mong muốn.</p>
                     </article>
-                    <article class="brand-card">
-                        <div class="brand-logo-wrap"><img src="schooli-logo.png" alt="Logo Schooli" loading="lazy"></div>
-                        <h3>Schooli</h3>
-                        <p>Hệ thống quản lý trường học và trung tâm đào tạo, hỗ trợ vận hành giáo dục thông minh.</p>
-                        <a href="index.html#brand-schooli">Tìm hiểu thương hiệu <span aria-hidden="true">→</span></a>
+                    <article class="brand-card course-card">
+                        <span class="course-number">04</span>
+                        <h3>Bồi Dưỡng Cấp 3 (Lớp 10 - 12) &amp; Luyện Thi THPT</h3>
+                        <p>Hệ thống hóa kiến thức toàn cấp, phương pháp làm bài bứt phá điểm số xét tuyển Đại học.</p>
                     </article>
                 </div>
             </div>
@@ -1524,59 +1814,103 @@
             <div class="content-width">
                 <div class="leadership-panel">
                     <div>
-                        <span class="section-kicker">Đội ngũ & cố vấn</span>
-                        <h2>Chuyên môn cùng chung một tầm nhìn</h2>
-                        <p>Giáo dục phát triển tốt nhất khi kinh nghiệm chuyên môn, sự thấu hiểu người học và tư duy công nghệ cùng được kết nối.</p>
+                        <span class="section-kicker">Đội ngũ chuyên môn</span>
+                        <h2>Tận Tâm — Chuyên Môn — Đồng Hành</h2>
+                        <p>Đội ngũ Điểm 10+ luôn đặt sự tiến bộ của học sinh làm trọng tâm, kết hợp chuyên môn vững vàng với phương pháp cá nhân hóa.</p>
                     </div>
                     <div class="leadership-points">
-                        <div class="leadership-point"><strong>Giáo dục</strong><span>Định hướng giải pháp từ nhu cầu thực tế của người học và nhà trường.</span></div>
-                        <div class="leadership-point"><strong>Công nghệ</strong><span>Phát triển công cụ hữu ích, có khả năng ứng dụng và mở rộng.</span></div>
-                        <div class="leadership-point"><strong>Con người</strong><span>Đặt trải nghiệm, sự phát triển và tiềm năng của mỗi cá nhân làm trọng tâm.</span></div>
-                        <div class="leadership-point"><strong>Cộng đồng</strong><span>Khuyến khích hợp tác và chia sẻ tri thức trong hệ sinh thái giáo dục.</span></div>
+                        <div class="leadership-point"><strong>Tư vấn 1:1</strong><span>Theo sát năng lực và hỗ trợ kịp thời từng khó khăn của học sinh.</span></div>
+                        <div class="leadership-point"><strong>Chuyên môn cao</strong><span>Đội ngũ giáo viên giàu kinh nghiệm bồi dưỡng văn hóa Toán, Lý, Hóa, Văn.</span></div>
+                        <div class="leadership-point"><strong>Phương pháp độc quyền</strong><span>Áp dụng tư duy cá nhân hóa giúp học sinh tiếp thu nhẹ nhàng, hiệu quả.</span></div>
+                        <div class="leadership-point"><strong>Hỗ trợ 24/7</strong><span>Luôn sẵn sàng giải đáp thắc mắc và đồng hành cùng phụ huynh, học sinh.</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="partners-section" id="partners">
+        <section class="partners-section" id="branches">
             <div class="content-width">
                 <div class="partners-heading">
-                    <span class="section-kicker">Cùng kiến tạo giá trị</span>
-                    <h2>Đối tác chiến lược</h2>
-                    <p>Kết nối các tổ chức và đơn vị đồng hành trong lĩnh vực giáo dục, công nghệ và đào tạo.</p>
+                    <span class="section-kicker">Hệ thống 8 chi nhánh</span>
+                    <h2>Thuận Tiện Di Chuyển Khắp Các Quận TP.HCM</h2>
+                    <p>Chọn cơ sở gần nhất để thuận tiện đồng hành cùng Điểm 10+ trên hành trình học tập.</p>
                 </div>
-            </div>
-            <div class="partner-marquee" aria-label="Danh sách đối tác">
-                <div class="partner-track">
-                    <div class="partner-name">ĐẠI HỌC CÔNG NGHIỆP</div>
-                    <div class="partner-name">VIETTEL EDUTECH</div>
-                    <div class="partner-name">VNPT EDUCATION</div>
-                    <div class="partner-name">FPT POLYTECHNIC</div>
-                    <div class="partner-name">MICROSOFT EDUCATION</div>
-                    <div class="partner-name">AWS FOR EDUCATION</div>
-                    <div class="partner-name" aria-hidden="true">ĐẠI HỌC CÔNG NGHIỆP</div>
-                    <div class="partner-name" aria-hidden="true">VIETTEL EDUTECH</div>
-                    <div class="partner-name" aria-hidden="true">VNPT EDUCATION</div>
-                    <div class="partner-name" aria-hidden="true">FPT POLYTECHNIC</div>
-                    <div class="partner-name" aria-hidden="true">MICROSOFT EDUCATION</div>
-                    <div class="partner-name" aria-hidden="true">AWS FOR EDUCATION</div>
+                <div class="branch-grid" aria-label="Danh sách 8 chi nhánh">
+                    <div class="branch-card"><span>01</span>Quận 5 · Trụ sở chính</div>
+                    <div class="branch-card"><span>02</span>Quận 10</div>
+                    <div class="branch-card"><span>03</span>Quận 3</div>
+                    <div class="branch-card"><span>04</span>Tân Bình</div>
+                    <div class="branch-card"><span>05</span>Bình Thạnh</div>
+                    <div class="branch-card"><span>06</span>Quận 7</div>
+                    <div class="branch-card"><span>07</span>Gò Vấp</div>
+                    <div class="branch-card"><span>08</span>Phú Nhuận</div>
                 </div>
             </div>
         </section>
 
-        <section class="cta-section">
+        <section class="cta-section" id="contact">
             <div class="content-width cta-card">
-                <div>
-                    <h2>Cùng Bản Việt kiến tạo tương lai giáo dục</h2>
-                    <p>Kết nối với chúng tôi để tìm hiểu các giải pháp và cơ hội hợp tác.</p>
+                <div class="cta-copy">
+                    <span class="section-kicker">Hỗ trợ 24/7 — Tư vấn 1:1</span>
+                    <h2>Sẵn Sàng Bắt Đầu Hành Trình Bứt Phá Điểm Số?</h2>
+                    <p>Để lại thông tin, đội ngũ Điểm 10+ sẽ liên hệ tư vấn lộ trình học phù hợp cho bạn.</p>
+                    <div class="cta-promises">Tư vấn miễn phí 100% · Phản hồi trong vòng 30 phút · Bảo mật thông tin tuyệt đối.</div>
+                    <p style="margin-top: 20px"><strong>Hotline tư vấn:</strong> <a href="tel:0933398787">0933 39 87 87</a></p>
                 </div>
-                <a class="button-primary" href="index.html#contact">Liên hệ Bản Việt <span aria-hidden="true">→</span></a>
+                <form class="consultation-form" id="consultation-form">
+                    <div class="form-field">
+                        <label for="consultation-name">Họ và tên</label>
+                        <input id="consultation-name" name="name" type="text" autocomplete="name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="consultation-phone">Số điện thoại</label>
+                        <input id="consultation-phone" name="phone" type="tel" autocomplete="tel" required>
+                    </div>
+                    <div class="form-field form-field--full">
+                        <label for="consultation-email">Email</label>
+                        <input id="consultation-email" name="email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="form-field form-field--full">
+                        <label for="consultation-course">Khóa học quan tâm</label>
+                        <select id="consultation-course" name="course" required>
+                            <option value="" selected disabled>Chọn khóa học</option>
+                            <option>Tiền Tiểu Học</option>
+                            <option>Bồi Dưỡng Cấp 2</option>
+                            <option>Luyện Thi Vào Lớp 10</option>
+                            <option>Bồi Dưỡng Cấp 3</option>
+                            <option>Lớp Trực Tuyến Online</option>
+                            <option>Tư vấn chung</option>
+                        </select>
+                    </div>
+                    <button class="consultation-submit form-field--full" type="submit">Đăng ký tư vấn miễn phí</button>
+                    <p class="form-note form-field--full">Khi gửi, ứng dụng email mặc định sẽ mở để bạn xác nhận yêu cầu tư vấn.</p>
+                </form>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <div class="content-width">© 2026 Công Ty TNHH Đầu Tư Giáo Dục Và Công Nghệ Bản Việt</div>
+        <div class="content-width">
+            <div class="footer-grid">
+                <div>
+                    <h2>TRUNG TÂM BỒI DƯỠNG VĂN HÓA ĐIỂM 10+</h2>
+                    <p>Hơn 11 năm kinh nghiệm bồi dưỡng Toán - Lý - Hóa - Văn tại TP.HCM.</p>
+                </div>
+                <div>
+                    <h3>Thông tin liên hệ</h3>
+                    <p><strong>Trụ sở chính:</strong> 123 Nguyễn Văn Cừ, Phường 4, Quận 5, TP.HCM</p>
+                    <p><strong>Hotline:</strong> <a href="tel:0933398787">0933 39 87 87</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:tvkh.diem10cong@gmail.com">tvkh.diem10cong@gmail.com</a></p>
+                </div>
+                <div>
+                    <h3>Giờ làm việc</h3>
+                    <p>T2 - T7: 8:00 - 21:00</p>
+                    <p>CN: 8:00 - 17:00</p>
+                    <p><a href="#branches">Xem hệ thống 8 chi nhánh</a></p>
+                </div>
+            </div>
+            <div class="footer-copyright">© 2026 Trung Tâm Bồi Dưỡng Văn Hóa Điểm 10+. Bảo lưu mọi quyền.</div>
+        </div>
     </footer>
 
     <script>
@@ -1596,8 +1930,30 @@
             menuButton.setAttribute('aria-label', isOpen ? 'Đóng menu' : 'Mở menu');
             syncHeaderState();
         });
+        mobileMenu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-open');
+                menuButton.setAttribute('aria-expanded', 'false');
+                menuButton.setAttribute('aria-label', 'Mở menu');
+                syncHeaderState();
+            });
+        });
         window.addEventListener('scroll', syncHeaderState, { passive: true });
         syncHeaderState();
+
+        const consultationForm = document.querySelector('#consultation-form');
+        consultationForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(consultationForm);
+            const subject = encodeURIComponent('Đăng ký tư vấn học tập Điểm 10+');
+            const body = encodeURIComponent(
+                `Họ và tên: ${formData.get('name')}\n` +
+                `Số điện thoại: ${formData.get('phone')}\n` +
+                `Email: ${formData.get('email')}\n` +
+                `Khóa học quan tâm: ${formData.get('course')}`
+            );
+            window.location.href = `mailto:tvkh.diem10cong@gmail.com?subject=${subject}&body=${body}`;
+        });
 
         const timeline = document.querySelector('[data-timeline-viewport]');
         const timelineItems = Array.from(document.querySelectorAll('.milestone'));
