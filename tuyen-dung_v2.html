@@ -860,27 +860,34 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="header.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="content-width header-inner">
-            <a class="brand-logo" href="index.html" aria-label="Bản Việt - Trang chủ">
-                <img src="banviet_tach_nen (1).png" alt="Logo Bản Việt">
+    <header id="site-header" class="site-header">
+        <div class="index-header-inner">
+            <a href="index.html" class="header-logo" aria-label="Bản Việt - Trang chủ">
+                <img src="images_v2/logo.png" alt="Logo Công Ty TNHH Đầu Tư Giáo Dục Và Công Nghệ Bản Việt">
             </a>
-            <nav class="desktop-nav" aria-label="Điều hướng chính">
-                <a href="ve-chung-toi_v2.html">Về Chúng Tôi</a>
-                <a href="index.html#brands">Thương Hiệu</a>
-                <a href="tin-tuc_v2.html">Tin Tức</a>
-                <a href="tuyen-dung_v2.html" aria-current="page">Tuyển Dụng</a>
+            <nav class="index-header-nav" aria-label="Điều hướng chính">
+                <a href="ve-chung-toi_v2.html" class="header-link">Về Chúng Tôi</a>
+                <a href="index.html#brands" class="header-link">Các Môn Học</a>
+                <a href="tin-tuc_v2.html" class="header-link">Tin Tức</a>
+                <a href="tuyen-dung_v2.html" class="header-link" aria-current="page">Tuyển Dụng</a>
             </nav>
-            <a class="contact-link" href="index.html#contact">Liên Hệ Ngay</a>
-            <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu">
+            <a class="index-header-contact" href="index.html#contact">Liên Hệ Ngay</a>
+            <button id="mobile-menu-btn" class="header-menu" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
-        <nav class="mobile-menu" id="mobile-menu" aria-label="Điều hướng mobile">
+        <nav id="mobile-menu" class="header-mobile-panel" aria-label="Điều hướng mobile">
             <a href="ve-chung-toi_v2.html">Về Chúng Tôi</a>
-            <a href="index.html#brands">Thương Hiệu</a>
+            <div class="header-mobile-courses">
+                <span>Các môn học</span>
+                <a href="index.html#brand-math">Toán</a>
+                <a href="index.html#brand-physics">Vật lý</a>
+                <a href="index.html#brand-chemistry">Hóa học</a>
+                <a href="index.html#brand-literature">Ngữ văn</a>
+            </div>
             <a href="tin-tuc_v2.html">Tin Tức</a>
             <a href="tuyen-dung_v2.html" aria-current="page">Tuyển Dụng</a>
         </nav>
@@ -1032,8 +1039,8 @@
     </footer>
 
     <script>
-        const siteHeader = document.querySelector('.site-header');
-        const menuButton = document.querySelector('.menu-toggle');
+        const siteHeader = document.getElementById('site-header');
+        const menuButton = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.querySelector('#mobile-menu');
 
         const syncHeaderState = () => {
@@ -1047,6 +1054,14 @@
             menuButton.setAttribute('aria-expanded', String(isOpen));
             menuButton.setAttribute('aria-label', isOpen ? 'Đóng menu' : 'Mở menu');
             syncHeaderState();
+        });
+        mobileMenu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-open');
+                menuButton.setAttribute('aria-expanded', 'false');
+                menuButton.setAttribute('aria-label', 'Mở menu');
+                syncHeaderState();
+            });
         });
         window.addEventListener('scroll', syncHeaderState, { passive: true });
         syncHeaderState();

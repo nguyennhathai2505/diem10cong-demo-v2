@@ -1616,38 +1616,36 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="header.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="content-width header-inner">
-            <a class="brand-logo" href="index_v2.html" aria-label="Trung tâm Điểm 10+ - Trang chủ">
-                <img src="diem10cong-logo.png" alt="Logo Điểm 10+">
-                <span class="brand-copy">
-                    <strong>TRUNG TÂM ĐIỂM 10+</strong>
-                    <span>Vững kiến thức, chắc tư duy</span>
-                </span>
+    <header id="site-header" class="site-header">
+        <div class="index-header-inner">
+            <a href="index.html" class="header-logo" aria-label="Bản Việt - Trang chủ">
+                <img src="images_v2/logo.png" alt="Logo Công Ty TNHH Đầu Tư Giáo Dục Và Công Nghệ Bản Việt">
             </a>
-            <nav class="desktop-nav" aria-label="Điều hướng chính">
-                <a href="#story">Câu Chuyện</a>
-                <a href="#ecosystem">Khóa Học</a>
-                <a href="#branches">Chi Nhánh</a>
-                <a href="tin-tuc_v2.html">Tin Tức</a>
+            <nav class="index-header-nav" aria-label="Điều hướng chính">
+                <a href="ve-chung-toi_v2.html" class="header-link" aria-current="page">Về Chúng Tôi</a>
+                <a href="index.html#brands" class="header-link">Các Môn Học</a>
+                <a href="tin-tuc_v2.html" class="header-link">Tin Tức</a>
+                <a href="tuyen-dung_v2.html" class="header-link">Tuyển Dụng</a>
             </nav>
-            <a class="header-hotline" href="tel:0933398787">0933 39 87 87</a>
-            <a class="contact-link" href="#contact"><span class="contact-link--full">Đăng Ký Học Thử</span><span class="contact-link--short">Học Thử</span></a>
-            <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu">
+            <a class="index-header-contact" href="index.html#contact">Liên Hệ Ngay</a>
+            <button id="mobile-menu-btn" class="header-menu" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
-        <nav class="mobile-menu" id="mobile-menu" aria-label="Điều hướng mobile">
-            <a href="#story">Câu chuyện thương hiệu</a>
-            <a href="#values">Giá trị cốt lõi</a>
-            <a href="#journey">Hành trình</a>
-            <a href="#ecosystem">Khóa học</a>
-            <a href="#leadership">Đội ngũ chuyên môn</a>
-            <a href="#branches">Hệ thống chi nhánh</a>
-            <a href="#contact">Đăng ký tư vấn</a>
+        <nav id="mobile-menu" class="header-mobile-panel" aria-label="Điều hướng mobile">
+            <a href="ve-chung-toi_v2.html" aria-current="page">Về Chúng Tôi</a>
+            <div class="header-mobile-courses">
+                <span>Các môn học</span>
+                <a href="index.html#brand-math">Toán</a>
+                <a href="index.html#brand-physics">Vật lý</a>
+                <a href="index.html#brand-chemistry">Hóa học</a>
+                <a href="index.html#brand-literature">Ngữ văn</a>
+            </div>
             <a href="tin-tuc_v2.html">Tin Tức</a>
+            <a href="tuyen-dung_v2.html">Tuyển Dụng</a>
         </nav>
     </header>
 
@@ -1914,8 +1912,8 @@
     </footer>
 
     <script>
-        const siteHeader = document.querySelector('.site-header');
-        const menuButton = document.querySelector('.menu-toggle');
+        const siteHeader = document.getElementById('site-header');
+        const menuButton = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.querySelector('#mobile-menu');
 
         const syncHeaderState = () => {
