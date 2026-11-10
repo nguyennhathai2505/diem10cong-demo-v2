@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff7ed">
+    <title>Tin Tức & Chia Sẻ | Bản Việt EdTech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: #451a03;
+            background: #fffaf5;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-width: 320px;
+            min-height: 100vh;
+            margin: 0;
+            background: #fffaf5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid rgba(69, 10, 10, 0.08);
+            background: rgba(69, 10, 10, 0.96);
+            backdrop-filter: blur(18px);
+            transition: width 220ms ease, top 220ms ease, border-radius 220ms ease, background 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+        }
+
+        .site-header.is-scrolled,
+        .site-header.is-open {
+            width: min(1180px, calc(100% - 32px));
+            margin-right: auto;
+            margin-left: auto;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 20px;
+            background: rgba(69, 10, 10, 0.96);
+            box-shadow: 0 14px 38px rgba(69, 10, 10, 0.24);
+            backdrop-filter: blur(18px);
+        }
+
+        .site-header.is-scrolled {
+            top: 12px;
+        }
+
+        .site-header.is-scrolled .header-inner,
+        .site-header.is-open .header-inner {
+            width: calc(100% - 32px);
+            min-height: 62px;
+        }
+
+        .header-inner,
+        .content-width {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .header-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand-logo img {
+            display: block;
+            width: 160px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        .site-header.is-scrolled .brand-logo,
+        .site-header.is-open .brand-logo {
+            padding: 4px 10px;
+            border-radius: 13px;
+            /* background: rgba(255, 255, 255, 0.94); */
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .desktop-nav a {
+            padding: 10px 14px;
+            border-radius: 999px;
+            transition: background 160ms ease;
+            color:#fff;
+        }
+
+        .desktop-nav a:hover,
+        .desktop-nav a[aria-current="page"] {
+            background: rgba(185, 28, 28, 0.14);
+        }
+
+        .site-header.is-scrolled .desktop-nav a,
+        .site-header.is-open .desktop-nav a {
+            color: #fff;
+        }
+
+        .site-header.is-scrolled .desktop-nav a:hover,
+        .site-header.is-scrolled .desktop-nav a[aria-current="page"],
+        .site-header.is-open .desktop-nav a:hover,
+        .site-header.is-open .desktop-nav a[aria-current="page"] {
+            background: rgba(245, 158, 11, 0.22);
+            color: #fde68a;
+        }
+
+        .contact-link {
+            padding: 11px 17px;
+            border-radius: 999px;
+            background: #f59e0b;
+            font-size: 12px;
+            font-weight: 900;
+            white-space: nowrap;
+            transition: transform 160ms ease, background 160ms ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            background: #d97706;
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(69, 10, 10, 0.12);
+            border-radius: 13px;
+            background: #fff;
+            color: #451a03;
+        }
+
+        .menu-toggle svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-width: 2;
+        }
+
+        .site-header.is-scrolled .menu-toggle,
+        .site-header.is-open .menu-toggle {
+            border-color: rgba(255, 255, 255, 0.28);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+        }
+
+        .mobile-menu {
+            display: none;
+            padding: 8px 20px 18px;
+            border-top: 1px solid rgba(69, 10, 10, 0.08);
+            background: #fff;
+        }
+
+        .mobile-menu.is-open {
+            display: grid;
+            gap: 5px;
+        }
+
+        .mobile-menu a {
+            padding: 11px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .mobile-menu a:hover {
+            background: #fff7ed;
+        }
+
+        .page-hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: 76px 0 72px;
+            background: linear-gradient(135deg, #fff7ed, #fffaf5 62%, #fef3c7);
+        }
+
+        .page-hero::after {
+            position: absolute;
+            top: -160px;
+            right: -110px;
+            z-index: -1;
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(185, 28, 28, 0.18);
+            border-radius: 50%;
+            box-shadow: 0 0 0 38px rgba(185, 28, 28, 0.045), 0 0 0 78px rgba(185, 28, 28, 0.035);
+            content: "";
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 13px;
+            border-radius: 999px;
+            background: rgba(185, 28, 28, 0.16);
+            color: #991b1b;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: Montserrat, sans-serif;
+        }
+
+        .page-hero h1 {
+            max-width: 760px;
+            margin: 18px 0 12px;
+            color: #451a03;
+            font-size: clamp(38px, 6vw, 64px);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.08;
+        }
+
+        .page-hero h1 span {
+            color: #b91c1c;
+        }
+
+        .page-hero p {
+            max-width: 670px;
+            margin: 0;
+            color: #6b4f3a;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .news-section {
+            padding: 54px 0 88px;
+        }
+
+        .news-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 26px;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .filter-button {
+            padding: 9px 14px;
+            border: 1px solid rgba(69, 10, 10, 0.1);
+            border-radius: 999px;
+            background: #fff;
+            color: #6b4f3a;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+        }
+
+        .filter-button:hover,
+        .filter-button.is-active {
+            border-color: #451a03;
+            background: #451a03;
+            color: #fff;
+        }
+
+        .search {
+            width: min(260px, 100%);
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .search svg {
+            position: absolute;
+            top: 50%;
+            left: 13px;
+            width: 17px;
+            height: 17px;
+            fill: none;
+            stroke: #8b735e;
+            stroke-linecap: round;
+            stroke-width: 2;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 11px 14px 11px 39px;
+            border: 1px solid rgba(69, 10, 10, 0.12);
+            border-radius: 999px;
+            outline: none;
+            background: #fff;
+            color: #451a03;
+            font-size: 12px;
+        }
+
+        .search input:focus {
+            border-color: #b91c1c;
+            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.15);
+        }
+
+        .result-count {
+            margin: 0 0 18px;
+            color: #6b4f3a;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .article-card {
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid rgba(185, 28, 28, 0.2);
+            border-radius: 23px;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(69, 10, 10, 0.07);
+            transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(185, 28, 28, 0.62);
+            box-shadow: 0 20px 42px rgba(69, 10, 10, 0.13);
+        }
+
+        .article-card[hidden] {
+            display: none;
+        }
+
+        .article-image {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #dceef6;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 400ms ease;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.045);
+        }
+
+        .article-category {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            padding: 7px 11px;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.94);
+            color: #991b1b;
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        .article-content {
+            padding: 20px 21px 22px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: #8b735e;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .article-meta::before {
+            width: 7px;
+            height: 7px;
+            flex: 0 0 7px;
+            border-radius: 50%;
+            background: #b91c1c;
+            content: "";
+        }
+
+        .article-card h2 {
+            margin: 0 0 9px;
+            color: #451a03;
+            font-size: 18px;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            margin: 0;
+            color: #6b4f3a;
+            font-size: 12px;
+            line-height: 1.75;
+        }
+
+        .article-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 17px;
+            padding-top: 13px;
+            border-top: 1px solid #f5f5f4;
+            color: #78350f;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .article-arrow {
+            color: #b45309;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .empty-state {
+            display: none;
+            padding: 48px 20px;
+            border: 1px dashed rgba(69, 10, 10, 0.2);
+            border-radius: 20px;
+            color: #6b4f3a;
+            text-align: center;
+        }
+
+        .empty-state.is-visible {
+            display: block;
+        }
+
+        .site-footer {
+            padding: 28px 0;
+            background: #450a0a;
+            color: #fed7aa;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        @media (max-width: 900px) {
+            .article-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 680px) {
+            .header-inner,
+            .content-width {
+                width: min(100% - 30px, 1180px);
+            }
+
+            .header-inner {
+                min-height: 68px;
+                gap: 10px;
+            }
+
+            .brand-logo img {
+                width: 112px;
+                height: 42px;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: grid;
+                place-items: center;
+            }
+
+            .page-hero {
+                padding: 54px 0 48px;
+            }
+
+            .page-hero p {
+                font-size: 13px;
+            }
+
+            .news-section {
+                padding: 34px 0 64px;
+            }
+
+            .news-toolbar {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .search {
+                width: 100%;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .article-card {
+                display: grid;
+                grid-template-columns: 38% 1fr;
+                border-radius: 18px;
+            }
+
+            .article-image {
+                min-height: 100%;
+                aspect-ratio: auto;
+            }
+
+            .article-category {
+                top: 9px;
+                left: 9px;
+                padding: 6px 8px;
+                font-size: 9px;
+            }
+
+            .article-content {
+                padding: 14px;
+            }
+
+            .article-card h2 {
+                font-size: 14px;
+            }
+
+            .article-card p {
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+            }
+
+            .article-footer {
+                margin-top: 11px;
+                padding-top: 10px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .contact-link {
+                padding: 10px 12px;
+                font-size: 10px;
+            }
+
+            .article-card {
+                grid-template-columns: 1fr;
+            }
+
+            .article-image {
+                aspect-ratio: 16 / 9;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand-logo" href="index_v2.html" aria-label="Bản Việt - Trang chủ">
+                <img src="banviet_tach_nen (1).png" alt="Logo Bản Việt">
+            </a>
+            <nav class="desktop-nav" aria-label="Điều hướng chính">
+                <a href="ve-chung-toi_v2.html">Về Chúng Tôi</a>
+                <a href="index_v2.html#brands">Thương Hiệu</a>
+                <a href="tin-tuc_v2.html" aria-current="page">Tin Tức</a>
+                <a href="tuyen-dung_v2.html">Tuyển Dụng</a>
+            </nav>
+            <a class="contact-link" href="index_v2.html#contact">Liên Hệ Ngay</a>
+            <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Điều hướng mobile">
+            <a href="ve-chung-toi_v2.html">Về Chúng Tôi</a>
+            <a href="index_v2.html#brands">Thương Hiệu</a>
+            <a href="tin-tuc_v2.html" aria-current="page">Tin Tức</a>
+            <a href="tuyen-dung_v2.html">Tuyển Dụng</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="content-width">
+                <span class="eyebrow">Bản Việt EdTech · Tin tức & chia sẻ</span>
+                <h1>Góc Nhìn <span>Giáo Dục</span></h1>
+                <p>Khám phá các xu hướng giáo dục, công nghệ và phương pháp học tập mới. Cùng Bản Việt cập nhật những ý tưởng đang góp phần kiến tạo tương lai học tập.</p>
+            </div>
+        </section>
+
+        <section class="news-section" aria-label="Danh sách tin tức">
+            <div class="content-width">
+                <div class="news-toolbar">
+                    <div class="filters" role="group" aria-label="Lọc bài viết theo chủ đề">
+                        <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Tất cả</button>
+                        <button class="filter-button" type="button" data-filter="giao-duc" aria-pressed="false">Giáo dục</button>
+                        <button class="filter-button" type="button" data-filter="cong-nghe" aria-pressed="false">Công nghệ</button>
+                        <button class="filter-button" type="button" data-filter="hoc-tap" aria-pressed="false">Học tập</button>
+                        <button class="filter-button" type="button" data-filter="cong-dong" aria-pressed="false">Cộng đồng</button>
+                    </div>
+                    <label class="search">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+                        <input type="search" data-search placeholder="Tìm bài viết..." aria-label="Tìm bài viết">
+                    </label>
+                </div>
+
+                <p class="result-count" data-result-count aria-live="polite">15 bài viết mẫu</p>
+                <div class="article-grid" data-article-grid>
+                    <article class="article-card" data-category="giao-duc">
+                        <div class="article-image"><img src="anh_doi_ngu.png" alt="Giáo viên và học sinh cùng học tập" loading="lazy"><span class="article-category">Giáo dục</span></div>
+                        <div class="article-content"><div class="article-meta">18/10/2026 · 5 phút đọc</div><h2>Lớp học số mở ra trải nghiệm học tập mới</h2><p>Công nghệ giúp kết nối người học với học liệu và phương pháp giảng dạy linh hoạt trong môi trường giáo dục hiện đại.</p><div class="article-footer"><span>ĐỔI MỚI GIÁO DỤC</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="cong-nghe">
+                        <div class="article-image"><img src="background_2.png" alt="Thành phố hiện đại và công nghệ số" loading="lazy"><span class="article-category">Công nghệ</span></div>
+                        <div class="article-content"><div class="article-meta">12/10/2026 · 6 phút đọc</div><h2>AI cá nhân hóa hành trình học tập ra sao?</h2><p>Các công cụ thông minh có thể hỗ trợ nhận diện nhu cầu và gợi ý lộ trình phù hợp với từng người học.</p><div class="article-footer"><span>AI TRONG GIÁO DỤC</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="hoc-tap">
+                        <div class="article-image"><img src="hinh-anh-khat-vong.webp" alt="Học sinh học tập và phát triển" loading="lazy"><span class="article-category">Học tập</span></div>
+                        <div class="article-content"><div class="article-meta">05/10/2026 · 4 phút đọc</div><h2>Xây dựng thói quen tự học bền vững mỗi ngày</h2><p>Mục tiêu rõ ràng, thời gian biểu phù hợp và những bước tiến nhỏ giúp người học duy trì động lực lâu dài.</p><div class="article-footer"><span>PHƯƠNG PHÁP HỌC</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="cong-nghe">
+                        <div class="article-image"><img src="background-city.png" alt="Toàn cảnh thành phố trong kỷ nguyên số" loading="lazy"><span class="article-category">Công nghệ</span></div>
+                        <div class="article-content"><div class="article-meta">28/09/2026 · 7 phút đọc</div><h2>Chuyển đổi số trong trường học bắt đầu từ đâu?</h2><p>Những bước đi thiết thực giúp nhà trường số hóa quy trình, kết nối dữ liệu và nâng cao trải nghiệm vận hành.</p><div class="article-footer"><span>CHUYỂN ĐỔI SỐ</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="giao-duc">
+                        <div class="article-image"><img src="anh-dia-cau.png" alt="Quả địa cầu tượng trưng cho tri thức toàn cầu" loading="lazy"><span class="article-category">Giáo dục</span></div>
+                        <div class="article-content"><div class="article-meta">20/09/2026 · 5 phút đọc</div><h2>Kết nối tri thức Việt với thế giới</h2><p>Nền tảng số mở rộng cơ hội tiếp cận nguồn học liệu, chuyên gia và cộng đồng học tập xuyên biên giới.</p><div class="article-footer"><span>GIÁO DỤC TOÀN CẦU</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="cong-dong">
+                        <div class="article-image"><img src="hinh-anh-to-quoc.jpg" alt="Hoạt động cộng đồng và kết nối tri thức" loading="lazy"><span class="article-category">Cộng đồng</span></div>
+                        <div class="article-content"><div class="article-meta">14/09/2026 · 4 phút đọc</div><h2>Sức mạnh của cộng đồng học tập tích cực</h2><p>Khi học sinh, giáo viên và phụ huynh cùng chia sẻ, hành trình học tập trở nên gắn kết và có thêm động lực.</p><div class="article-footer"><span>CỘNG ĐỒNG HỌC TẬP</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="cong-nghe">
+                        <div class="article-image"><img src="aitechco-logo.png" alt="Thương hiệu Aitechco về giải pháp AI" loading="lazy"><span class="article-category">Công nghệ</span></div>
+                        <div class="article-content"><div class="article-meta">08/09/2026 · 6 phút đọc</div><h2>Ứng dụng dữ liệu để hỗ trợ người học</h2><p>Dữ liệu học tập được sử dụng đúng cách có thể giúp giáo viên hiểu tiến độ và đưa ra hỗ trợ kịp thời.</p><div class="article-footer"><span>DỮ LIỆU GIÁO DỤC</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="hoc-tap">
+                        <div class="article-image"><img src="diem10cong-logo.png" alt="Thương hiệu Diem10cong đồng hành luyện thi" loading="lazy"><span class="article-category">Học tập</span></div>
+                        <div class="article-content"><div class="article-meta">01/09/2026 · 5 phút đọc</div><h2>Ôn tập thông minh trước kỳ thi quan trọng</h2><p>Chia nhỏ mục tiêu, luyện tập đều đặn và xem lại lỗi sai giúp học sinh chuẩn bị tự tin hơn.</p><div class="article-footer"><span>BÍ QUYẾT ÔN TẬP</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="giao-duc">
+                        <div class="article-image"><img src="schooli-logo.png" alt="Thương hiệu Schooli hỗ trợ quản lý trường học" loading="lazy"><span class="article-category">Giáo dục</span></div>
+                        <div class="article-content"><div class="article-meta">25/08/2026 · 5 phút đọc</div><h2>Quản lý trường học thông minh và liền mạch</h2><p>Công cụ quản lý tập trung giúp nhà trường kết nối thông tin, giảm thao tác lặp lại và dành thêm thời gian cho người học.</p><div class="article-footer"><span>QUẢN LÝ GIÁO DỤC</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="hoc-tap">
+                        <div class="article-image"><img src="anh_doi_ngu.png" alt="Giáo viên hướng dẫn học sinh trong lớp" loading="lazy"><span class="article-category">Học tập</span></div>
+                        <div class="article-content"><div class="article-meta">19/08/2026 · 4 phút đọc</div><h2>Vai trò của giáo viên trong lớp học kết hợp</h2><p>Kết hợp trực tiếp và trực tuyến mở ra cách tổ chức linh hoạt, đồng thời tăng vai trò hướng dẫn của giáo viên.</p><div class="article-footer"><span>PHƯƠNG PHÁP GIẢNG DẠY</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="cong-nghe">
+                        <div class="article-image"><img src="background_1.jpg" alt="Không gian đô thị và đổi mới công nghệ" loading="lazy"><span class="article-category">Công nghệ</span></div>
+                        <div class="article-content"><div class="article-meta">12/08/2026 · 6 phút đọc</div><h2>An toàn thông tin trong môi trường học tập số</h2><p>Bảo vệ dữ liệu cá nhân và xây dựng thói quen số an toàn là nền tảng cho môi trường học tập đáng tin cậy.</p><div class="article-footer"><span>AN TOÀN SỐ</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="cong-dong">
+                        <div class="article-image"><img src="hinh-anh-to-quoc.jpg" alt="Hoạt động giao lưu và chia sẻ tri thức" loading="lazy"><span class="article-category">Cộng đồng</span></div>
+                        <div class="article-content"><div class="article-meta">04/08/2026 · 4 phút đọc</div><h2>Nuôi dưỡng niềm yêu thích học ngoại ngữ</h2><p>Thực hành thường xuyên, nội dung gần gũi và cơ hội giao tiếp giúp người học tự tin sử dụng ngoại ngữ.</p><div class="article-footer"><span>NGOẠI NGỮ</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="giao-duc">
+                        <div class="article-image"><img src="background-city.png" alt="Hạ tầng đô thị phục vụ giáo dục hiện đại" loading="lazy"><span class="article-category">Giáo dục</span></div>
+                        <div class="article-content"><div class="article-meta">28/07/2026 · 5 phút đọc</div><h2>Học tập suốt đời trong xã hội hiện đại</h2><p>Tri thức luôn đổi mới, vì vậy khả năng học hỏi liên tục trở thành hành trang quan trọng của mỗi người.</p><div class="article-footer"><span>HỌC TẬP SUỐT ĐỜI</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="cong-nghe">
+                        <div class="article-image"><img src="anh-dia-cau.png" alt="Địa cầu và kết nối công nghệ giáo dục" loading="lazy"><span class="article-category">Công nghệ</span></div>
+                        <div class="article-content"><div class="article-meta">20/07/2026 · 6 phút đọc</div><h2>Công nghệ hỗ trợ cá nhân hóa lớp học</h2><p>Công cụ số có thể giúp giáo viên đa dạng hóa học liệu và theo sát nhịp độ tiếp thu của từng nhóm học sinh.</p><div class="article-footer"><span>CÔNG NGHỆ HỌC TẬP</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                    <article class="article-card" data-category="cong-dong">
+                        <div class="article-image"><img src="anh_doi_ngu.png" alt="Đội ngũ giáo dục cùng hợp tác" loading="lazy"><span class="article-category">Cộng đồng</span></div>
+                        <div class="article-content"><div class="article-meta">12/07/2026 · 4 phút đọc</div><h2>Đồng hành cùng phụ huynh trên hành trình học</h2><p>Sự trao đổi cởi mở giữa gia đình và nhà trường giúp tạo môi trường nhất quán để học sinh phát triển.</p><div class="article-footer"><span>GIA ĐÌNH & NHÀ TRƯỜNG</span><span class="article-arrow" aria-hidden="true">→</span></div></div>
+                    </article>
+                </div>
+                <p class="empty-state" data-empty-state>Chưa tìm thấy bài viết phù hợp. Hãy thử từ khóa hoặc chủ đề khác.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="content-width">© 2026 Công Ty TNHH Đầu Tư Giáo Dục Và Công Nghệ Bản Việt</div>
+    </footer>
+
+    <script>
+        const siteHeader = document.querySelector('.site-header');
+        const menuButton = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('#mobile-menu');
+        const syncHeaderState = () => {
+            const isMenuOpen = mobileMenu.classList.contains('is-open');
+            siteHeader.classList.toggle('is-scrolled', window.scrollY > 24);
+            siteHeader.classList.toggle('is-open', isMenuOpen);
+        };
+
+        menuButton.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('is-open');
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+            menuButton.setAttribute('aria-label', isOpen ? 'Đóng menu' : 'Mở menu');
+            syncHeaderState();
+        });
+        window.addEventListener('scroll', syncHeaderState, { passive: true });
+        syncHeaderState();
+
+        const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
+        const searchInput = document.querySelector('[data-search]');
+        const articleCards = Array.from(document.querySelectorAll('.article-card'));
+        const resultCount = document.querySelector('[data-result-count]');
+        const emptyState = document.querySelector('[data-empty-state]');
+        let activeCategory = 'all';
+
+        const updateArticles = () => {
+            const searchTerm = searchInput.value.trim().toLocaleLowerCase('vi');
+            let visibleCount = 0;
+
+            articleCards.forEach((card) => {
+                const matchesCategory = activeCategory === 'all' || card.dataset.category === activeCategory;
+                const matchesSearch = card.textContent.toLocaleLowerCase('vi').includes(searchTerm);
+                const isVisible = matchesCategory && matchesSearch;
+                card.hidden = !isVisible;
+                if (isVisible) visibleCount += 1;
+            });
+
+            resultCount.textContent = `${visibleCount} bài viết${activeCategory === 'all' && searchTerm === '' ? ' mẫu' : ''}`;
+            emptyState.classList.toggle('is-visible', visibleCount === 0);
+        };
+
+        filterButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                activeCategory = button.dataset.filter;
+                filterButtons.forEach((filter) => {
+                    const isActive = filter === button;
+                    filter.classList.toggle('is-active', isActive);
+                    filter.setAttribute('aria-pressed', String(isActive));
+                });
+                updateArticles();
+            });
+        });
+        searchInput.addEventListener('input', updateArticles);
+    </script>
+</body>
+</html>

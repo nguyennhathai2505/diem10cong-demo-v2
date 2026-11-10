@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff7ed">
+    <meta name="description" content="Tìm hiểu câu chuyện, tầm nhìn, giá trị cốt lõi và hệ sinh thái giáo dục Bản Việt EdTech.">
+    <title>Về Chúng Tôi | Bản Việt EdTech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: #451a03;
+            background: #fffaf5;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-width: 320px;
+            margin: 0;
+            background: #fffaf5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: Montserrat, sans-serif;
+        }
+
+        .content-width {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            border-bottom: 1px solid transparent;
+            background: linear-gradient(180deg, rgba(69, 10, 10, 0.34), rgba(69, 10, 10, 0));
+            transition: width 350ms ease, top 350ms ease, left 350ms ease, right 350ms ease, transform 350ms ease, border-radius 350ms ease, background 350ms ease, border-color 350ms ease, box-shadow 350ms ease, backdrop-filter 350ms ease;
+        }
+
+        .site-header.is-scrolled,
+        .site-header.is-open {
+            top: 12px;
+            left: 50%;
+            right: auto;
+            width: min(1180px, calc(100% - 32px));
+            transform: translateX(-50%);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 20px;
+            background: rgba(69, 10, 10, 0.96);
+            box-shadow: 0 14px 38px rgba(69, 10, 10, 0.28);
+            backdrop-filter: blur(18px);
+        }
+
+        .site-header.is-scrolled .header-inner,
+        .site-header.is-open .header-inner {
+            width: calc(100% - 32px);
+            min-height: 62px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 16px;
+            /* background: rgba(255, 255, 255, 0.94); */
+            box-shadow: 0 8px 24px rgba(69, 10, 10, 0.14);
+            transition: background 350ms ease, box-shadow 350ms ease, padding 350ms ease;
+        }
+
+        .site-header.is-scrolled .brand-logo,
+        .site-header.is-open .brand-logo {
+            padding: 4px 0;
+            /* background: rgba(255, 255, 255, 0.94); */
+            box-shadow: 0 5px 16px rgba(69, 10, 10, 0.2);
+        }
+
+        .header-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand-logo img {
+            display: block;
+            width: 160px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .desktop-nav a {
+            padding: 10px 13px;
+            border-radius: 999px;
+            color: #fff;
+            transition: background 160ms ease;
+        }
+
+        .desktop-nav a:hover {
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .site-header.is-scrolled .desktop-nav a,
+        .site-header.is-open .desktop-nav a {
+            color: #fff;
+        }
+
+        .site-header.is-scrolled .desktop-nav a:hover,
+        .site-header.is-scrolled .desktop-nav a[aria-current="page"],
+        .site-header.is-open .desktop-nav a:hover,
+        .site-header.is-open .desktop-nav a[aria-current="page"] {
+            background: rgba(245, 158, 11, 0.22);
+            color: #fde68a;
+        }
+
+        .contact-link {
+            padding: 11px 16px;
+            border-radius: 999px;
+            background: #f59e0b;
+            font-size: 11px;
+            font-weight: 900;
+            white-space: nowrap;
+            transition: transform 160ms ease, background 160ms ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            background: #d97706;
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 13px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .site-header.is-scrolled .menu-toggle,
+        .site-header.is-open .menu-toggle {
+            border-color: rgba(255, 255, 255, 0.28);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+        }
+
+        .menu-toggle svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-width: 2;
+        }
+
+        .mobile-menu {
+            display: none;
+            padding: 8px 20px 18px;
+            border-top: 1px solid rgba(69, 10, 10, 0.08);
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(18px);
+        }
+
+        .mobile-menu.is-open {
+            display: grid;
+            gap: 5px;
+        }
+
+        .mobile-menu a {
+            padding: 11px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .mobile-menu a:hover {
+            background: #fff7ed;
+        }
+
+        .hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            min-height: 800px;
+            display: flex;
+            align-items: center;
+            padding: 78px 0;
+            background: #450a0a;
+            color: #fff;
+        }
+
+        .hero::before,
+        .hero::after {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            content: "";
+        }
+
+        .hero::before {
+            background: linear-gradient(90deg, rgba(69, 10, 10, 0.96) 0%, rgba(69, 10, 10, 0.82) 48%, rgba(69, 10, 10, 0.38) 100%), url("background-city.png") center 56% / cover;
+            animation: city-drift 24s ease-in-out infinite alternate;
+        }
+
+        .hero::after {
+            background: radial-gradient(circle at 76% 50%, rgba(185, 28, 28, 0.15), transparent 35%), linear-gradient(0deg, rgba(69, 10, 10, 0.35), transparent 45%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+            align-items: center;
+            gap: 48px;
+        }
+
+        .hero-copy {
+            max-width: 670px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 13px;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fde68a;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #f59e0b;
+            box-shadow: 0 0 14px rgba(245, 158, 11, 0.8);
+            content: "";
+        }
+
+        .hero h1 {
+            margin: 22px 0 18px;
+            font-size: clamp(40px, 5.3vw, 68px);
+            font-weight: 900;
+            letter-spacing: -0.055em;
+            line-height: 1.08;
+        }
+
+        .hero h1 span {
+            color: #f59e0b;
+        }
+
+        .hero-copy > p {
+            max-width: 590px;
+            margin-bottom: 28px;
+            color: #fed7aa;
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .button-primary,
+        .button-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 900;
+            transition: transform 160ms ease, background 160ms ease;
+        }
+
+        .button-primary {
+            background: #f59e0b;
+            color: #451a03;
+        }
+
+        .button-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+        }
+
+        .button-primary:hover,
+        .button-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        .orbit-visual {
+            position: relative;
+            width: min(100%, 440px);
+            aspect-ratio: 1;
+            justify-self: center;
+            display: grid;
+            place-items: center;
+        }
+
+        .orbit-ring {
+            position: absolute;
+            width: 84%;
+            aspect-ratio: 1;
+            border: 1px solid rgba(255, 255, 255, 0.26);
+            border-radius: 50%;
+            box-shadow: 0 0 55px rgba(185, 28, 28, 0.16), inset 0 0 55px rgba(185, 28, 28, 0.09);
+            animation: orbit-turn 38s linear infinite;
+        }
+
+        .orbit-ring::before,
+        .orbit-ring::after {
+            position: absolute;
+            inset: 9%;
+            border: 1px dashed rgba(245, 158, 11, 0.42);
+            border-radius: 50%;
+            content: "";
+        }
+
+        .orbit-ring::after {
+            inset: 19%;
+            border-color: rgba(255, 255, 255, 0.18);
+            border-style: solid;
+        }
+
+        .orbit-core {
+            position: relative;
+            z-index: 2;
+            width: 44%;
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 230, 138, 0.9);
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 22%, #b91c1c, #991b1b 60%, #450a0a);
+            box-shadow: 0 0 0 9px rgba(255, 255, 255, 0.08), 0 22px 55px rgba(0, 0, 0, 0.3), 0 0 50px rgba(185, 28, 28, 0.25);
+            text-align: center;
+        }
+
+        .orbit-core img {
+            width: 68%;
+            max-height: 34%;
+            margin-bottom: 8px;
+            object-fit: contain;
+            /* filter: brightness(0) invert(1);Forbit-core */
+        }
+
+        .orbit-core strong {
+            color: #fff;
+            font-family: Montserrat, sans-serif;
+            font-size: clamp(12px, 1.45vw, 18px);
+            font-weight: 900;
+        }
+
+        .orbit-core span {
+            margin-top: 5px;
+            color: #fde68a;
+            font-size: clamp(7px, 0.8vw, 10px);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .orbit-node {
+            position: absolute;
+            z-index: 3;
+            width: 100px;
+            min-height: 74px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 18px;
+            background: rgba(69, 10, 10, 0.82);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            backdrop-filter: blur(10px);
+            animation: node-float 4s ease-in-out infinite;
+        }
+
+        .orbit-node svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: #f59e0b;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 1.7;
+        }
+
+        .orbit-node--people {
+            top: 5%;
+            left: calc(50% - 50px);
+        }
+
+        .orbit-node--knowledge {
+            top: calc(50% - 37px);
+            right: -1%;
+            animation-delay: -1s;
+        }
+
+        .orbit-node--tech {
+            bottom: 5%;
+            left: calc(50% - 50px);
+            animation-delay: -2s;
+        }
+
+        .orbit-node--growth {
+            top: calc(50% - 37px);
+            left: -1%;
+            animation-delay: -3s;
+        }
+
+        .section {
+            padding: 92px 0;
+        }
+
+        .section-white {
+            background: #fff;
+        }
+
+        .section-dark {
+            overflow: hidden;
+            background: #450a0a;
+            color: #fff;
+        }
+
+        .section-heading {
+            max-width: 710px;
+            margin: 0 auto 42px;
+            text-align: center;
+        }
+
+        .section-kicker {
+            display: inline-block;
+            margin-bottom: 13px;
+            color: #b91c1c;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 13px;
+            color: #451a03;
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: 900;
+            letter-spacing: -0.045em;
+            line-height: 1.16;
+        }
+
+        .section-heading p {
+            margin-bottom: 0;
+            color: #6b4f3a;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+            align-items: stretch;
+            gap: 24px;
+        }
+
+        .story-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 350px;
+            padding: clamp(26px, 4vw, 46px);
+            border: 1px solid rgba(185, 28, 28, 0.2);
+            border-radius: 28px;
+            background: linear-gradient(145deg, #fff, #fff7ed);
+            box-shadow: 0 20px 50px rgba(69, 10, 10, 0.07);
+        }
+
+        .story-card h2 {
+            max-width: 550px;
+            margin: 14px 0;
+            font-size: clamp(27px, 3.3vw, 40px);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1.19;
+        }
+
+        .story-card p {
+            max-width: 620px;
+            margin-bottom: 14px;
+            color: #6b4f3a;
+            font-size: 13px;
+            line-height: 1.85;
+        }
+
+        .story-quote {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(69, 10, 10, 0.1);
+            color: #991b1b;
+            font-family: Montserrat, sans-serif;
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .story-quote::before {
+            width: 4px;
+            height: 34px;
+            border-radius: 99px;
+            background: #f59e0b;
+            content: "";
+        }
+
+        .vision-stack {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .vision-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 165px;
+            padding: 26px;
+            border-radius: 24px;
+            color: #fff;
+            background: linear-gradient(135deg, #7f1d1d, #450a0a);
+        }
+
+        .vision-card::after {
+            position: absolute;
+            right: -44px;
+            bottom: -80px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 50%;
+            box-shadow: 0 0 0 24px rgba(255, 255, 255, 0.04), 0 0 0 52px rgba(255, 255, 255, 0.03);
+            content: "";
+        }
+
+        .vision-card:nth-child(2) {
+            background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+        }
+
+        .vision-card span {
+            display: block;
+            margin-bottom: 13px;
+            color: #fde68a;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .vision-card h3 {
+            position: relative;
+            z-index: 1;
+            max-width: 420px;
+            margin-bottom: 0;
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.45;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .value-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 245px;
+            padding: 25px 22px;
+            border: 1px solid rgba(185, 28, 28, 0.18);
+            border-radius: 22px;
+            background: #fffaf5;
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        }
+
+        .value-card {
+            /* Các thuộc tính mặc định của card nếu có */
+            transition: all 0.3s ease; /* Thêm hiệu ứng chuyển động mượt mà */
+
+            &:hover {
+                transform: translateY(-5px);
+                border-color: rgba(185, 28, 28, 0.55);
+                box-shadow: 0 18px 35px rgba(69, 10, 10, 0.1);
+
+                /* Thay đổi màu của .value-number khi hover vào .value-card */
+                .value-number {
+                    color: rgba(69, 10, 10, 0.96);
+                }
+            }
+        }
+
+        .value-number {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            color: rgba(69, 10, 10, 0.08);
+            font-family: Montserrat, sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+        }
+
+        .value-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 23px;
+            border-radius: 15px;
+            background: #fff1f2;
+            color: #991b1b;
+        }
+
+        .value-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 1.8;
+        }
+
+        .value-card h3 {
+            margin-bottom: 9px;
+            font-size: 17px;
+            font-weight: 900;
+        }
+
+        .value-card p {
+            margin-bottom: 0;
+            color: #6b4f3a;
+            font-size: 12px;
+            line-height: 1.75;
+        }
+
+        .timeline-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 31px;
+        }
+
+        .timeline-head .section-heading {
+            margin: 0;
+            text-align: left;
+        }
+
+        .timeline-head .section-heading h2 {
+            color: #fff;
+        }
+
+        .timeline-head .section-heading p {
+            color: #fdba74;
+        }
+
+        .timeline-controls {
+            display: flex;
+            gap: 9px;
+            flex: 0 0 auto;
+        }
+
+        .timeline-control {
+            width: 43px;
+            height: 43px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+            color: #fff;
+            cursor: pointer;
+            transition: color 160ms ease, background 160ms ease;
+        }
+
+        .timeline-control:hover:not(:disabled) {
+            background: #f59e0b;
+            color: #451a03;
+        }
+
+        .timeline-control:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .timeline-control svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2;
+        }
+
+        .timeline-viewport {
+            overflow-x: auto;
+            padding: 5px 2px 13px;
+            scrollbar-width: thin;
+            scrollbar-color: #b91c1c rgba(255, 255, 255, 0.1);
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            cursor: grab;
+        }
+
+        .timeline-viewport:active {
+            cursor: grabbing;
+        }
+
+        .timeline-track {
+            display: grid;
+            grid-auto-columns: minmax(245px, 1fr);
+            grid-auto-flow: column;
+            gap: 17px;
+            min-width: 100%;
+        }
+
+        .milestone {
+            position: relative;
+            min-width: 0;
+            scroll-snap-align: start;
+        }
+
+        .milestone-card {
+            position: relative;
+            min-height: 210px;
+            padding: 23px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 21px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+            transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+        }
+
+        .milestone:hover .milestone-card,
+        .milestone.is-active .milestone-card {
+            transform: translateY(-4px);
+            border-color: rgba(245, 158, 11, 0.65);
+            background: linear-gradient(145deg, rgba(127, 29, 29, 0.78), rgba(255, 255, 255, 0.06));
+        }
+
+        .milestone-year {
+            display: inline-flex;
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: #f59e0b;
+            color: #451a03;
+            font-family: Montserrat, sans-serif;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .milestone-card h3 {
+            margin: 17px 0 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        .milestone-card p {
+            margin-bottom: 0;
+            color: #fed7aa;
+            font-size: 12px;
+            line-height: 1.75;
+        }
+
+        .milestone-node {
+            position: relative;
+            width: 12px;
+            height: 12px;
+            display: block;
+            margin: 17px 0 0 24px;
+            border: 2px solid #8dcdeb;
+            border-radius: 50%;
+            background: #450a0a;
+            box-shadow: 0 0 0 5px rgba(185, 28, 28, 0.13);
+        }
+
+        .milestone:not(:last-child) .milestone-node::after {
+            position: absolute;
+            top: 3px;
+            left: 10px;
+            width: calc(100% + 17px);
+            min-width: 230px;
+            border-top: 1px dashed rgba(245, 158, 11, 0.42);
+            content: "";
+            pointer-events: none;
+        }
+
+        .milestone.is-active .milestone-node,
+        .milestone:hover .milestone-node {
+            border-color: #f59e0b;
+            background: #f59e0b;
+            box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.18), 0 0 16px rgba(245, 158, 11, 0.65);
+        }
+
+        .timeline-footnote {
+            margin: 15px 0 0;
+            color: #a18065;
+            font-size: 10px;
+            line-height: 1.6;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .brand-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 275px;
+            padding: 23px;
+            border: 1px solid rgba(185, 28, 28, 0.2);
+            border-radius: 22px;
+            background: #fff;
+            box-shadow: 0 12px 30px rgba(69, 10, 10, 0.06);
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 38px rgba(69, 10, 10, 0.12);
+        }
+
+        .brand-logo-wrap {
+            height: 62px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 17px;
+        }
+
+        .brand-logo-wrap img {
+            max-width: 150px;
+            max-height: 48px;
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .brand-card h3 {
+            margin-bottom: 9px;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .brand-card p {
+            margin-bottom: 20px;
+            color: #6b4f3a;
+            font-size: 12px;
+            line-height: 1.75;
+        }
+
+        .brand-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: auto;
+            color: #991b1b;
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .brand-card a span {
+            color: #b45309;
+            font-size: 17px;
+            transition: transform 160ms ease;
+        }
+
+        .brand-card a:hover span {
+            transform: translateX(4px);
+        }
+
+        .leadership-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+            align-items: center;
+            gap: 40px;
+            padding: clamp(26px, 5vw, 55px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            background: linear-gradient(130deg, #7f1d1d, #450a0a);
+        }
+
+        .leadership-panel h2 {
+            margin: 13px 0 14px;
+            color: #fff;
+            font-size: clamp(29px, 4vw, 43px);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1.18;
+        }
+
+        .leadership-panel p {
+            margin-bottom: 0;
+            color: #fed7aa;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .leadership-points {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .leadership-point {
+            min-height: 110px;
+            padding: 17px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .leadership-point strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #fde68a;
+            font-family: Montserrat, sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .leadership-point span {
+            color: #fed7aa;
+            font-size: 11px;
+            line-height: 1.65;
+        }
+
+        .partners-section {
+            padding: 67px 0;
+            background: #fff;
+        }
+
+        .partners-heading {
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .partners-heading h2 {
+            margin-bottom: 9px;
+            color: #451a03;
+            font-size: clamp(25px, 3.5vw, 35px);
+            font-weight: 900;
+        }
+
+        .partners-heading p {
+            margin-bottom: 0;
+            color: #6b4f3a;
+            font-size: 12px;
+        }
+
+        .partner-marquee {
+            overflow: hidden;
+            padding: 9px 0;
+            mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+        }
+
+        .partner-track {
+            width: max-content;
+            display: flex;
+            gap: 15px;
+            animation: partner-scroll 28s linear infinite;
+        }
+
+        .partner-marquee:hover .partner-track {
+            animation-play-state: running;
+        }
+
+        .partner-name {
+            min-width: 190px;
+            padding: 17px 20px;
+            border: 1px solid rgba(69, 10, 10, 0.09);
+            border-radius: 15px;
+            background: #fffaf5;
+            color: #78350f;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            text-align: center;
+        }
+
+        .cta-section {
+            padding: 68px 0;
+            background: linear-gradient(120deg, #fff7ed, #fef3c7);
+        }
+
+        .cta-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .cta-card h2 {
+            margin-bottom: 8px;
+            color: #451a03;
+            font-size: clamp(25px, 3.5vw, 36px);
+            font-weight: 900;
+        }
+
+        .cta-card p {
+            margin-bottom: 0;
+            color: #6b4f3a;
+            font-size: 13px;
+        }
+
+        .site-footer {
+            padding: 27px 0;
+            background: #450a0a;
+            color: #fed7aa;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        @keyframes orbit-turn {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes node-float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        @keyframes city-drift {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.06);
+            }
+        }
+
+        @keyframes partner-scroll {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 960px) {
+            .desktop-nav {
+                gap: 0;
+                font-size: 11px;
+            }
+
+            .desktop-nav a {
+                padding-inline: 9px;
+            }
+
+            .header-inner {
+                gap: 12px;
+            }
+
+            .brand-logo img {
+                width: 120px;
+            }
+
+            .values-grid,
+            .ecosystem-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 720px) {
+            .content-width {
+                width: min(100% - 30px, 1180px);
+            }
+
+            .header-inner {
+                min-height: 68px;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .brand-logo img {
+                width: 112px;
+                height: 42px;
+            }
+
+            .menu-toggle {
+                display: grid;
+            }
+
+            .hero {
+                min-height: unset;
+                padding: 58px 0 48px;
+            }
+
+            .hero-grid,
+            .story-grid,
+            .leadership-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-grid {
+                gap: 36px;
+            }
+
+            .hero-copy > p {
+                font-size: 13px;
+            }
+
+            .orbit-visual {
+                width: min(100%, 360px);
+            }
+
+            .section {
+                padding: 68px 0;
+            }
+
+            .story-card {
+                min-height: unset;
+            }
+
+            .vision-stack {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-rows: 1fr;
+            }
+
+            .vision-card {
+                min-height: 200px;
+                padding: 21px;
+            }
+
+            .vision-card h3 {
+                font-size: 17px;
+            }
+
+            .timeline-head {
+                align-items: flex-end;
+            }
+
+            .timeline-head .section-heading {
+                margin: 0;
+            }
+
+            .timeline-track {
+                grid-auto-columns: minmax(250px, 78vw);
+            }
+
+            .leadership-panel {
+                gap: 25px;
+            }
+
+            .cta-card {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-link {
+                padding: 10px 11px;
+                font-size: 10px;
+            }
+
+            .hero h1 {
+                font-size: 39px;
+            }
+
+            .orbit-visual {
+                width: min(100%, 320px);
+            }
+
+            .orbit-node {
+                width: 86px;
+                min-height: 66px;
+                border-radius: 15px;
+                font-size: 9px;
+            }
+
+            .orbit-node--people,
+            .orbit-node--tech {
+                left: calc(50% - 43px);
+            }
+
+            .orbit-node--knowledge {
+                right: -2%;
+            }
+
+            .orbit-node--growth {
+                left: -2%;
+            }
+
+            .section-heading {
+                margin-bottom: 31px;
+            }
+
+            .vision-stack {
+                grid-template-columns: 1fr;
+            }
+
+            .vision-card {
+                min-height: 155px;
+            }
+
+            .values-grid,
+            .ecosystem-grid,
+            .leadership-points {
+                grid-template-columns: 1fr;
+            }
+
+            .value-card {
+                min-height: 205px;
+            }
+
+            .timeline-head {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .timeline-controls {
+                align-self: flex-end;
+                margin-top: -12px;
+            }
+
+            .timeline-track {
+                grid-auto-columns: 82vw;
+            }
+
+            .brand-card {
+                min-height: 240px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="content-width header-inner">
+            <a class="brand-logo" href="index_v2.html" aria-label="Bản Việt - Trang chủ">
+                <img src="banviet_tach_nen (1).png" alt="Logo Bản Việt">
+            </a>
+            <nav class="desktop-nav" aria-label="Điều hướng chính">
+                <a href="ve-chung-toi_v2.html" aria-current="page">Về Chúng Tôi</a>
+                <a href="#ecosystem">Hệ Sinh Thái</a>
+                <a href="tin-tuc_v2.html">Tin Tức</a>
+                <a href="tuyen-dung_v2.html">Tuyển Dụng</a>
+                <a href="#partners">Đối Tác</a>
+            </nav>
+            <a class="contact-link" href="index_v2.html#contact">Liên Hệ Ngay</a>
+            <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Điều hướng mobile">
+            <a href="ve-chung-toi_v2.html" aria-current="page">Về Chúng Tôi</a>
+            <a href="#ecosystem">Hệ Sinh Thái</a>
+            <a href="tin-tuc_v2.html">Tin Tức</a>
+            <a href="tuyen-dung_v2.html">Tuyển Dụng</a>
+            <a href="#partners">Đối Tác</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="about-title">
+            <div class="content-width hero-grid">
+                <div class="hero-copy">
+                    <span class="eyebrow">Bản Việt EdTech · Bản sắc Việt, giá trị toàn cầu</span>
+                    <h1 id="about-title">Về Bản Việt <br><span>Kiến Tạo</span> Tương Lai Giáo Dục Việt Nam</h1>
+                    <p>Nơi hội tụ của trí tuệ, công nghệ và con người, mang đến các giải pháp giáo dục toàn diện, hiện đại và tiếp cận toàn cầu.</p>
+                    <div class="hero-actions">
+                        <a class="button-primary" href="#story">Khám phá câu chuyện</a>
+                        <a class="button-secondary" href="#ecosystem">Hệ sinh thái Bản Việt</a>
+                    </div>
+                </div>
+
+                <div class="orbit-visual" role="img" aria-label="Hệ sinh thái Bản Việt kết nối con người, tri thức, công nghệ và phát triển">
+                    <div class="orbit-ring" aria-hidden="true"></div>
+                    <div class="orbit-core">
+                        <img src="banviet_tach_nen (1).png" alt="">
+                        
+                        <span>Con người là trung tâm</span>
+                    </div>
+                    <div class="orbit-node orbit-node--people">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 5.5a3 3 0 0 1 0 5.8M17 14a4.5 4.5 0 0 1 3.5 4.4"></path></svg>
+                        Con Người
+                    </div>
+                    <div class="orbit-node orbit-node--knowledge">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21zM4 5.5v13M8 7h8M8 11h7"></path></svg>
+                        Trí Thức
+                    </div>
+                    <div class="orbit-node orbit-node--tech">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"></rect><path d="M9 9h6v6H9zM9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4"></path></svg>
+                        Công Nghệ
+                    </div>
+                    <div class="orbit-node orbit-node--growth">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6m0 12h16M7 15l4-4 3 2 5-6M15 7h4v4"></path></svg>
+                        Phát Triển
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-white" id="story">
+            <div class="content-width">
+                <div class="story-grid">
+                    <article class="story-card">
+                        <span class="section-kicker">Câu chuyện thương hiệu</span>
+                        <h2>Rút ngắn khoảng cách công nghệ trong giáo dục</h2>
+                        <p>Bản Việt khởi nguồn từ khát vọng góp phần thu hẹp khoảng cách công nghệ trong dạy và học. Từ những nhu cầu thiết thực của học sinh, giáo viên và các cơ sở giáo dục, chúng tôi hướng đến xây dựng những giải pháp hữu ích, dễ tiếp cận và có thể phát triển bền vững.</p>
+                        <p>Hành trình ấy kết nối kinh nghiệm giáo dục với sức mạnh công nghệ, để mỗi người học có thêm cơ hội khám phá tiềm năng và chủ động kiến tạo tương lai.</p>
+                        <div class="story-quote">Bản sắc Việt — Giá trị toàn cầu</div>
+                    </article>
+                    <div class="vision-stack">
+                        <article class="vision-card">
+                            <span>Tầm nhìn</span>
+                            <h3>Tiên phong xây dựng hệ sinh thái công nghệ giáo dục hàng đầu tại Việt Nam, vươn tầm quốc tế.</h3>
+                        </article>
+                        <article class="vision-card">
+                            <span>Sứ mệnh</span>
+                            <h3>Số hóa học tập và quản lý, cá nhân hóa trải nghiệm bằng công nghệ và trí tuệ nhân tạo.</h3>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="values">
+            <div class="content-width">
+                <div class="section-heading">
+                    <span class="section-kicker">Nền tảng phát triển</span>
+                    <h2>Bốn trụ cột giá trị cốt lõi</h2>
+                    <p>Những nguyên tắc định hướng cách Bản Việt xây dựng sản phẩm, đồng hành cùng người học và phát triển cộng đồng.</p>
+                </div>
+                <div class="values-grid">
+                    <article class="value-card">
+                        <span class="value-number">01</span>
+                        <div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 11a3 3 0 1 0-1.4-5.65M17 15a4.5 4.5 0 0 1 3.5 4"></path></svg></div>
+                        <h3>Con Người</h3>
+                        <p>Lấy người học và đội ngũ làm trung tâm; nuôi dưỡng tài năng, sự thấu cảm và tinh thần trách nhiệm.</p>
+                    </article>
+                    <article class="value-card">
+                        <span class="value-number">02</span>
+                        <div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22zM4 5.5v14M8 7h8M8 11h8M8 15h5"></path></svg></div>
+                        <h3>Trí Thức</h3>
+                        <p>Kết nối tri thức chuẩn mực, cập nhật phương pháp tiên tiến và khuyến khích học tập suốt đời.</p>
+                    </article>
+                    <article class="value-card">
+                        <span class="value-number">03</span>
+                        <div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"></rect><path d="M9 9h6v6H9zM9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4"></path></svg></div>
+                        <h3>Công Nghệ</h3>
+                        <p>Ứng dụng AI, dữ liệu và tự động hóa để hỗ trợ giảng dạy, cá nhân hóa học tập và tối ưu vận hành.</p>
+                    </article>
+                    <article class="value-card">
+                        <span class="value-number">04</span>
+                        <div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6m0 12h16M7 15l4-4 3 2 5-6M15 7h4v4"></path></svg></div>
+                        <h3>Phát Triển</h3>
+                        <p>Không ngừng mở rộng hệ sinh thái, tạo giá trị bền vững cho người học và cộng đồng giáo dục.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-dark" id="journey">
+            <div class="content-width">
+                <div class="timeline-head">
+                    <div class="section-heading">
+                        <span class="section-kicker">2010 — 2026</span>
+                        <h2>Hành trình phát triển</h2>
+                        <p>Từ những bước khởi đầu đến định hướng kiến tạo tương lai giáo dục số.</p>
+                    </div>
+                    <div class="timeline-controls" aria-label="Điều hướng dòng thời gian">
+                        <button class="timeline-control" type="button" data-timeline-prev aria-label="Xem các mốc trước" disabled>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"></path></svg>
+                        </button>
+                        <button class="timeline-control" type="button" data-timeline-next aria-label="Xem các mốc tiếp theo">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="timeline-viewport" data-timeline-viewport tabindex="0" aria-label="Dòng thời gian từ 2010 đến 2026, cuộn ngang để xem các mốc">
+                    <div class="timeline-track">
+                        <article class="milestone is-active">
+                            <div class="milestone-card"><span class="milestone-year">2010</span><h3>Khởi đầu hành trình</h3><p>Khởi đầu nghiên cứu và đặt những nền móng đầu tiên cho hành trình giáo dục.</p></div>
+                            <span class="milestone-node" aria-hidden="true"></span>
+                        </article>
+                        <article class="milestone">
+                            <div class="milestone-card"><span class="milestone-year">2013</span><h3>Mở rộng hoạt động</h3><p>Mở rộng quy mô và triển khai các lớp học chất lượng cao.</p></div>
+                            <span class="milestone-node" aria-hidden="true"></span>
+                        </article>
+                        <article class="milestone">
+                            <div class="milestone-card"><span class="milestone-year">2016</span><h3>Đổi mới cùng công nghệ</h3><p>Bắt đầu số hóa tài liệu và bài giảng, hỗ trợ trải nghiệm học tập linh hoạt.</p></div>
+                            <span class="milestone-node" aria-hidden="true"></span>
+                        </article>
+                        <article class="milestone">
+                            <div class="milestone-card"><span class="milestone-year">2019</span><h3>Chuyển mình số hóa</h3><p>Phát triển định hướng giải pháp quản lý học tập thông minh.</p></div>
+                            <span class="milestone-node" aria-hidden="true"></span>
+                        </article>
+                        <article class="milestone">
+                            <div class="milestone-card"><span class="milestone-year">2022</span><h3>Xây dựng hệ sinh thái</h3><p>Hình thành hệ sinh thái đa thương hiệu phục vụ nhiều nhu cầu giáo dục.</p></div>
+                            <span class="milestone-node" aria-hidden="true"></span>
+                        </article>
+                        <article class="milestone">
+                            <div class="milestone-card"><span class="milestone-year">2026</span><h3>Kiến tạo tương lai số</h3><p>Hướng tới tích hợp sâu rộng AI vào hệ thống và hành trình học tập.</p></div>
+                            <span class="milestone-node" aria-hidden="true"></span>
+                        </article>
+                    </div>
+                </div>
+                <p class="timeline-footnote">Các mốc tóm lược theo nội dung định hướng được cung cấp; có thể cập nhật thêm thành tựu và hình ảnh thực tế.</p>
+            </div>
+        </section>
+
+        <section class="section section-white" id="ecosystem">
+            <div class="content-width">
+                <div class="section-heading">
+                    <span class="section-kicker">Hệ sinh thái giáo dục Bản Việt</span>
+                    <h2>Bốn mảnh ghép — Một hành trình học tập</h2>
+                    <p>Các thương hiệu tập trung vào những nhu cầu khác nhau, cùng hướng đến trải nghiệm giáo dục toàn diện.</p>
+                </div>
+                <div class="ecosystem-grid">
+                    <article class="brand-card">
+                        <div class="brand-logo-wrap"><img src="danhlingo-logo.png" alt="Logo Danhlingo" loading="lazy"></div>
+                        <h3>Danhlingo</h3>
+                        <p>Nền tảng học ngoại ngữ và luyện thi chứng chỉ trực tuyến, hỗ trợ người học rèn luyện linh hoạt.</p>
+                        <a href="index_v2.html#brand-danhlingo">Tìm hiểu thương hiệu <span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="brand-card">
+                        <div class="brand-logo-wrap"><img src="diem10cong-logo.png" alt="Logo Diem10cong" loading="lazy"></div>
+                        <h3>Diem10cong</h3>
+                        <p>Giải pháp luyện thi K-12, đồng hành củng cố kiến thức Toán, Lý, Hóa và Văn.</p>
+                        <a href="index_v2.html#brand-diem10cong">Tìm hiểu thương hiệu <span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="brand-card">
+                        <div class="brand-logo-wrap"><img src="aitechco-logo.png" alt="Logo Aitechco" loading="lazy"></div>
+                        <h3>Aitechco</h3>
+                        <p>Định hướng nghiên cứu và phát triển phần mềm AI, trợ lý học tập và ứng dụng công nghệ.</p>
+                        <a href="index_v2.html#brand-aitechco">Tìm hiểu thương hiệu <span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="brand-card">
+                        <div class="brand-logo-wrap"><img src="schooli-logo.png" alt="Logo Schooli" loading="lazy"></div>
+                        <h3>Schooli</h3>
+                        <p>Hệ thống quản lý trường học và trung tâm đào tạo, hỗ trợ vận hành giáo dục thông minh.</p>
+                        <a href="index_v2.html#brand-schooli">Tìm hiểu thương hiệu <span aria-hidden="true">→</span></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-dark" id="leadership">
+            <div class="content-width">
+                <div class="leadership-panel">
+                    <div>
+                        <span class="section-kicker">Đội ngũ & cố vấn</span>
+                        <h2>Chuyên môn cùng chung một tầm nhìn</h2>
+                        <p>Giáo dục phát triển tốt nhất khi kinh nghiệm chuyên môn, sự thấu hiểu người học và tư duy công nghệ cùng được kết nối.</p>
+                    </div>
+                    <div class="leadership-points">
+                        <div class="leadership-point"><strong>Giáo dục</strong><span>Định hướng giải pháp từ nhu cầu thực tế của người học và nhà trường.</span></div>
+                        <div class="leadership-point"><strong>Công nghệ</strong><span>Phát triển công cụ hữu ích, có khả năng ứng dụng và mở rộng.</span></div>
+                        <div class="leadership-point"><strong>Con người</strong><span>Đặt trải nghiệm, sự phát triển và tiềm năng của mỗi cá nhân làm trọng tâm.</span></div>
+                        <div class="leadership-point"><strong>Cộng đồng</strong><span>Khuyến khích hợp tác và chia sẻ tri thức trong hệ sinh thái giáo dục.</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners-section" id="partners">
+            <div class="content-width">
+                <div class="partners-heading">
+                    <span class="section-kicker">Cùng kiến tạo giá trị</span>
+                    <h2>Đối tác chiến lược</h2>
+                    <p>Kết nối các tổ chức và đơn vị đồng hành trong lĩnh vực giáo dục, công nghệ và đào tạo.</p>
+                </div>
+            </div>
+            <div class="partner-marquee" aria-label="Danh sách đối tác">
+                <div class="partner-track">
+                    <div class="partner-name">ĐẠI HỌC CÔNG NGHIỆP</div>
+                    <div class="partner-name">VIETTEL EDUTECH</div>
+                    <div class="partner-name">VNPT EDUCATION</div>
+                    <div class="partner-name">FPT POLYTECHNIC</div>
+                    <div class="partner-name">MICROSOFT EDUCATION</div>
+                    <div class="partner-name">AWS FOR EDUCATION</div>
+                    <div class="partner-name" aria-hidden="true">ĐẠI HỌC CÔNG NGHIỆP</div>
+                    <div class="partner-name" aria-hidden="true">VIETTEL EDUTECH</div>
+                    <div class="partner-name" aria-hidden="true">VNPT EDUCATION</div>
+                    <div class="partner-name" aria-hidden="true">FPT POLYTECHNIC</div>
+                    <div class="partner-name" aria-hidden="true">MICROSOFT EDUCATION</div>
+                    <div class="partner-name" aria-hidden="true">AWS FOR EDUCATION</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="content-width cta-card">
+                <div>
+                    <h2>Cùng Bản Việt kiến tạo tương lai giáo dục</h2>
+                    <p>Kết nối với chúng tôi để tìm hiểu các giải pháp và cơ hội hợp tác.</p>
+                </div>
+                <a class="button-primary" href="index_v2.html#contact">Liên hệ Bản Việt <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="content-width">© 2026 Công Ty TNHH Đầu Tư Giáo Dục Và Công Nghệ Bản Việt</div>
+    </footer>
+
+    <script>
+        const siteHeader = document.querySelector('.site-header');
+        const menuButton = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('#mobile-menu');
+
+        const syncHeaderState = () => {
+            const menuOpen = mobileMenu.classList.contains('is-open');
+            siteHeader.classList.toggle('is-scrolled', window.scrollY > 24);
+            siteHeader.classList.toggle('is-open', menuOpen);
+        };
+
+        menuButton.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('is-open');
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+            menuButton.setAttribute('aria-label', isOpen ? 'Đóng menu' : 'Mở menu');
+            syncHeaderState();
+        });
+        window.addEventListener('scroll', syncHeaderState, { passive: true });
+        syncHeaderState();
+
+        const timeline = document.querySelector('[data-timeline-viewport]');
+        const timelineItems = Array.from(document.querySelectorAll('.milestone'));
+        const previousButton = document.querySelector('[data-timeline-prev]');
+        const nextButton = document.querySelector('[data-timeline-next]');
+
+        const updateTimeline = () => {
+            const maxScroll = timeline.scrollWidth - timeline.clientWidth;
+            previousButton.disabled = timeline.scrollLeft <= 5;
+            nextButton.disabled = timeline.scrollLeft >= maxScroll - 2;
+            let closestItem = timelineItems[0];
+            let smallestDistance = Infinity;
+
+            timelineItems.forEach((item) => {
+                const distance = Math.abs(item.offsetLeft - timeline.scrollLeft);
+                if (distance < smallestDistance) {
+                    smallestDistance = distance;
+                    closestItem = item;
+                }
+            });
+
+            timelineItems.forEach((item) => item.classList.toggle('is-active', item === closestItem));
+        };
+
+        const scrollTimeline = (direction) => {
+            const gap = Number.parseFloat(getComputedStyle(timelineItems[0].parentElement).columnGap) || 0;
+            const step = timelineItems[0].offsetWidth + gap;
+            timeline.scrollBy({ left: direction * step, behavior: 'smooth' });
+        };
+
+        previousButton.addEventListener('click', () => scrollTimeline(-1));
+        nextButton.addEventListener('click', () => scrollTimeline(1));
+        timeline.addEventListener('scroll', updateTimeline, { passive: true });
+        window.addEventListener('resize', updateTimeline);
+        updateTimeline();
+    </script>
+</body>
+</html>
